@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class Main {
-    private ArrayList<Cell> playerPath;
+    private Stack<Cell> playerPath;
 
     public void PlayerMove(){}
 

@@ -13,4 +13,8 @@ public class Player {
     public int getHealth(){}
 
     private boolean hasKey(){}
+
+    public Location getLocation(){
+        return location;
+    }
 }

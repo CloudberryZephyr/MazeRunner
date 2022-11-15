@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Player {
     public Player(){}
     private ArrayList<String> backPack;
-    private int location;
+    private Location location;
     public void move(){}
 
 

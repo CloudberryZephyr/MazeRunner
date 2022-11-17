@@ -1,10 +1,13 @@
+import java.util.Random;
+
 /**
  * @author Clara Shoemaker
- * @version 1.0
+ * @version 1.1
  */
 public class Monster {
     private int health;
     private Location location;
+    private Random rand;
 
     /**
      * Constructor method that creates a monster object in a location corresponding to given x and y values
@@ -14,13 +17,22 @@ public class Monster {
     public Monster(int x, int y) {
         health = 10;   // initializing monster's health to 10, we'll see if this is practical
         location = new Location(x, y);
+        rand = new Random();
     }
 
     /**
      * This method controls the simple movement pattern in the board of the monster
-     * TODO: determine the basic pattern of movement for a monster
      */
     public void move() {
-        //STUB
+         int direction = rand.nextInt(4);
+         if (direction == 0){
+             location.setLocation(location.getX(), location.getY()-1);
+         } else if (direction == 1){
+             location.setLocation(location.getX(), location.getY()+1);
+         } else if (direction == 2){
+             location.setLocation(location.getX()-1, location.getY());
+         } else if (direction == 3){
+             location.setLocation(location.getX()+1, location.getY());
+         }
     }
 }

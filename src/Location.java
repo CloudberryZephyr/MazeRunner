@@ -1,6 +1,6 @@
 /**
  * @author Clara Shoemaker
- * @version 1.0
+ * @version 1.1
  */
 public class Location {
     private int x;
@@ -14,7 +14,8 @@ public class Location {
      * @param y int value for the row of the location
      */
     public Location(int x, int y) {
-
+        this.x = x;
+        this.y = y;
     }
 
     /**
@@ -23,7 +24,8 @@ public class Location {
      * @param y int value fot the row of the location
      */
     public void setLocation(int x, int y){
-
+        this.x = x;
+        this.y = y;
     }
 
     /**

@@ -1,6 +1,6 @@
 public class BoardTester {
     public static void main(String[] args) {
-        Board board = new Board(1, new Player());
+        Board board = new Board(1, new Player(10), 10);
         board.printBoard(new Location(0,0));
         System.out.println();
         board.printBoard(new Location(1,1));

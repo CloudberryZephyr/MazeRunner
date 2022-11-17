@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
  * @author Clara Shoemaker
- * @version 1.3
+ * @version 1.4
  */
 public class Board {
     // data members
@@ -20,11 +20,11 @@ public class Board {
      * @param difficulty an int value that determines the density of traps, number of monsters, etc.
      * @param player Player object corresponding to the current player character in Main class
      */
-    public Board(int difficulty, Player player) {
+    public Board(int difficulty, Player player, int boardSize) {
         this.difficulty = difficulty;
         this.player = player;
         //BOARD_SIZE = difficulty + 9;  Possible changes to board size depending on game difficulty
-        BOARD_SIZE = 10;
+        BOARD_SIZE = boardSize;
 
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];

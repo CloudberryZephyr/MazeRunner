@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 /**
  * @author Clara Shoemaker
- * @version 1.2
+ * @version 1.3
  */
 public class Board {
     // data members
@@ -20,7 +20,7 @@ public class Board {
      * @param difficulty an int value that determines the density of traps, number of monsters, etc.
      * @param player Player object corresponding to the current player character in Main class
      */
-    public Board(int difficulty, Player player, Location location) {
+    public Board(int difficulty, Player player) {
         this.difficulty = difficulty;
         this.player = player;
         //BOARD_SIZE = difficulty + 9;  Possible changes to board size depending on game difficulty
@@ -36,74 +36,10 @@ public class Board {
             }
         }
 
-        // initializes board view array
-        int playerX = location.getX();//player.getLocation().getX();
-        int playerY = location.getY();//player.getLocation().getY();
-        if (playerX >= 2) {
-            if ( (playerY >= 2) && (BOARD_SIZE - playerY >= 2)) { // non-edge board view
-                for (int i = -2; i<3; i++) {
-                    for (int j = -2; j<3; j++) {
-                        boardView[i + 2][j+2] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-            if ( (playerY == 1) || (BOARD_SIZE - playerY == 1)) {  // player position is 1 from the upper or lower edge
-                for (int i = -1; i<4; i++) {
-                    for (int j = -1; j<4; j++) {
-                        boardView[i + 1][j+1] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-            if ((playerY == 0) || (BOARD_SIZE - playerY == 0)) {  // player is positioned on the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = 0; j<5; j++) {
-                        boardView[i][j] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-        } else if (playerX == 1) {  // Player's x is within 1 cell of the edge of the bounds
-            if ( (playerY >= 2) && (BOARD_SIZE - playerY >= 2)) { // non-edge board view
-                for (int i = -1; i<4; i++) {
-                    for (int j = -2; j<3; j++) {
-                        boardView[i + 1][j+2] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-            if ( (playerY == 1) || (BOARD_SIZE - playerY == 1)) {  // player position is 1 from the upper or lower edge
-                for (int i = -1; i<4; i++) {
-                    for (int j = -1; j<4; j++) {
-                        boardView[i + 1][j+1] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-            if ((playerY == 0) || (BOARD_SIZE - playerY == 0)) {  // player is positioned on the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = 0; j<5; j++) {
-                        boardView[i][j] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-        } else if (playerX == 0) {  // player's x is on the edge of the bounds
-            if ( (playerY >= 2) && (BOARD_SIZE - playerY >= 2)) { // non-edge board view
-                for (int i = 0; i<5; i++) {
-                    for (int j = -2; j<3; j++) {
-                        boardView[i][j+2] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-            if ( (playerY == 1) || (BOARD_SIZE - playerY == 1)) {  // player position is 1 from the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = -1; j<4; j++) {
-                        boardView[i][j+1] = cells[playerX+i][playerY+j];
-                    }
-                }
-            }
-            if ((playerY == 0) || (BOARD_SIZE - playerY == 0)) {  // player is positioned on the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = 0; j<5; j++) {
-                        boardView[i][j] = cells[playerX+i][playerY+j];
-                    }
-                }
+        // initializes board view array assuming the player starts at 0, 0
+        for (int i=0; i<5; i++){
+            for (int j=0; j<5; j++) {
+                boardView[i][j] = cells[i][j];
             }
         }
     }
@@ -111,11 +47,86 @@ public class Board {
     /**
      * prints the boardView array in a visual console format
      */
-    public void printBoard() {
+    public void printBoard(Location location) {
         //STUB
+        int playerRow = location.getY();//player.getLocation().getX();
+        int playerCol = location.getX();//player.getLocation().getY();
+        if (playerRow >= 2) {
+            if ( (playerCol >= 2) && (BOARD_SIZE - playerCol >= 2)) { // non-edge board view
+                for (int i = -2; i<3; i++) {
+                    for (int j = -2; j<3; j++) {
+                        boardView[i + 2][j+2] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+            if ( (playerCol == 1) || (BOARD_SIZE - playerCol == 1)) {  // player position is 1 from the upper or lower edge
+                for (int i = -1; i<4; i++) {
+                    for (int j = -1; j<4; j++) {
+                        boardView[i + 1][j+1] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+            if ((playerCol == 0) || (BOARD_SIZE - playerCol == 0)) {  // player is positioned on the upper or lower edge
+                for (int i = 0; i<5; i++) {
+                    for (int j = 0; j<5; j++) {
+                        boardView[i][j] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+        } else if (playerRow == 1) {  // Player's x is within 1 cell of the edge of the bounds
+            if ( (playerCol >= 2) && (BOARD_SIZE - playerCol >= 2)) { // non-edge board view
+                for (int i = -1; i<4; i++) {
+                    for (int j = -2; j<3; j++) {
+                        boardView[i + 1][j+2] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+            if ( (playerCol == 1) || (BOARD_SIZE - playerCol == 1)) {  // player position is 1 from the upper or lower edge
+                for (int i = -1; i<4; i++) {
+                    for (int j = -1; j<4; j++) {
+                        boardView[i + 1][j+1] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+            if ((playerCol == 0) || (BOARD_SIZE - playerCol == 0)) {  // player is positioned on the upper or lower edge
+                for (int i = 0; i<5; i++) {
+                    for (int j = 0; j<5; j++) {
+                        boardView[i][j] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+        } else if (playerRow == 0) {  // player's x is on the edge of the bounds
+            if ( (playerCol >= 2) && (BOARD_SIZE - playerCol >= 2)) { // non-edge board view
+                for (int i = 0; i<5; i++) {
+                    for (int j = -2; j<3; j++) {
+                        boardView[i][j+2] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+            if ( (playerCol == 1) || (BOARD_SIZE - playerCol == 1)) {  // player position is 1 from the upper or lower edge
+                for (int i = 0; i<5; i++) {
+                    for (int j = -1; j<4; j++) {
+                        boardView[i][j+1] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+            if ((playerCol == 0) || (BOARD_SIZE - playerCol == 0)) {  // player is positioned on the upper or lower edge
+                for (int i = 0; i<5; i++) {
+                    for (int j = 0; j<5; j++) {
+                        boardView[i][j] = cells[playerRow+i][playerCol+j];
+                    }
+                }
+            }
+        }
+
+        // Print out board
         for(int i = 0; i< boardView.length; i++) {
             for (int j = 0; j< boardView.length; j++) {
-                System.out.print(boardView[i][j].toString());
+                if(boardView[i][j] == cells[playerRow][playerCol]){
+                    System.out.print(" U ");
+                } else {
+                    System.out.print(boardView[i][j].toString() + " ");
+                }
             }
             System.out.println();
         }

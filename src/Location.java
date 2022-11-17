@@ -19,7 +19,7 @@ public class Location {
     }
 
     /**
-     * a combined getter for the x and y data members
+     * a combined setter for the x and y data members
      * @param x int value for the column of the location
      * @param y int value fot the row of the location
      */
@@ -37,7 +37,7 @@ public class Location {
     }
 
     /**
-     * a setter for the y data member
+     * a getter for the y data member
      * @return int value for variable y
      */
     public int getY(){

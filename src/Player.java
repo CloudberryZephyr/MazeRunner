@@ -82,4 +82,12 @@ public class Player {
     public void fillBackpack(){
 
     }
+
+    /**
+     * getter for backpack ArrayList
+     * @return object reference for ArrayList object backpack
+     */
+    public ArrayList<String> getBackPack(){
+        return backPack;
+    }
 }

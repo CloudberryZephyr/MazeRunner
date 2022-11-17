@@ -4,35 +4,34 @@ public class Player {
     private ArrayList<String> backPack;
     private int health;
     private Location location;
+    private final int BOARD_SIZE;
 
     /**
      * player constructor method
      * TODO: determine what to give the player initially
-     * TODO: determine where to start the player
-     * TODO: is there one player throughout the game, or a new player object for each level?
      */
-    public Player(){
+    public Player(int boardSize){
         backPack = new ArrayList<>();
         health = 50; // set initial health to 50, we'll see if this is practical or not
         location = new Location(0, 0); // starts the player in the top left corner by default
+        this.BOARD_SIZE = boardSize;
     }
 
     /**
      * moves the Player by changing its location
      * @param direction string representation of the four movement options: up, down, left, and right
-     *                  TODO: what key words are we going to use?
      */
-    public void move(String direction){
-        if (direction.equals("up") && location.getY()>0) {
+    public void move(char direction){
+        if (direction == 'w' && location.getY()>0) {
             location.setLocation(location.getX(), location.getY()-1);
         }
-        if (direction.equals("down") && location.getY()</* some measure for max board y */) {
+        if (direction == 's' && location.getY()<BOARD_SIZE) {
             location.setLocation(location.getX(), location.getY()+1);
         }
-        if (direction.equals("left") && location.getX()>0) {
+        if (direction == 'a' && location.getX()>0) {
             location.setLocation(location.getX()-1, location.getY());
         }
-        if (direction.equals("right") && location.getX()</* some measure for max board x */) {
+        if (direction == 'd' && location.getX()<BOARD_SIZE) {
             location.setLocation(location.getX()+1, location.getY());
         }
     }
@@ -75,5 +74,12 @@ public class Player {
      */
     public Location getLocation(){
         return location;
+    }
+
+    /**
+     * fills backpack according to difficulty level
+     */
+    public void fillBackpack(){
+
     }
 }

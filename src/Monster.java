@@ -12,11 +12,13 @@ public class Monster {
      * @param y int value for the monster's starting row
      */
     public Monster(int x, int y) {
-        //STUB
+        health = 10;   // initializing monster's health to 10, we'll see if this is practical
+        location = new Location(x, y);
     }
 
     /**
      * This method controls the simple movement pattern in the board of the monster
+     * TODO: determine the basic pattern of movement for a monster
      */
     public void move() {
         //STUB

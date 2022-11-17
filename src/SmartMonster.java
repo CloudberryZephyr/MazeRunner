@@ -14,7 +14,7 @@ public class SmartMonster extends Monster{
     }
 
     /**
-     * This method is a basic ai process that controls the smartMonster's tracking behavior and movement
+     * This method is a basic AI process that controls the smartMonster's tracking behavior and movement
      */
     @Override
     public void move(){

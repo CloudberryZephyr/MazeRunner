@@ -1,5 +1,7 @@
 public class Wall extends Cell{
     public Wall(){}
 
-    public String wall(){}
+    public String wall(){
+        return "s";
+    }
 }

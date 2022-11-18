@@ -9,5 +9,6 @@ public class Cell {
 
 
     public boolean hasEntered(){
+        return false;
     }
 }

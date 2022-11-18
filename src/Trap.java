@@ -1,10 +1,22 @@
 import java.util.ArrayList;
 
+
+
+
 public class Trap extends Cell{
     ArrayList<String> items;
-    ArrayList<String> options;
+    ArrayList<Cell> traps;
 
     public Trap(){}
 
-    public int randTrap(){}
+    public void loadTrapsL1(){
+        traps.add(Empty);
+        traps.add(Key);
+
+    }
+
+    public int randTrap(){
+
+        return 1;
+    }
 }

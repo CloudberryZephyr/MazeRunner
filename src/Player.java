@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Player {
     private ArrayList<String> backPack;
-    private int health;
+    public int health;    //MAX changed this to public so that i can access in health trap
     private Location location;
     private final int BOARD_SIZE;
 

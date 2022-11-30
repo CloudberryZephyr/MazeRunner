@@ -9,7 +9,7 @@ public class Empty extends Cell{
 
     public void safePlace(String[] args){
         Scanner scan = new Scanner(System.in);
-        System.out.println("this is a safe place, monsters cannot enter this room");
+        System.out.println("this is a safe place, an empty room, that will not harm you");
 
     }
 }

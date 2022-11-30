@@ -6,6 +6,7 @@ public class Cell {
     ArrayList<Monster> veryScaryMonster;
 
 
+
     public boolean hasEntered(){
         return false;
     }

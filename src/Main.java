@@ -30,7 +30,6 @@ public class Main {
             level = stringToInt(user.nextLine());
             createGame(level);
         }
-
     }
     public void PlayerMove(){}
 

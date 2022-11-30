@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * @author Clara Shoemaker
@@ -12,7 +13,8 @@ public class Board {
     private int difficulty;
     private final int BOARD_SIZE;
     private Player player;
-
+    Random rand = new Random();
+    ArrayList<Cell> traps;
 
     /**
      * Constructor class - initializes all data members, constructs the board of play according to a given difficulty
@@ -25,6 +27,8 @@ public class Board {
         this.player = player;
         //BOARD_SIZE = difficulty + 9;  Possible changes to board size depending on game difficulty
         BOARD_SIZE = boardSize;
+        trapListD1();
+
 
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
@@ -34,8 +38,15 @@ public class Board {
             for (int j = 0; j<BOARD_SIZE; j++) {
                 if (i == BOARD_SIZE-1 && j == BOARD_SIZE-1){
                     cells[i][j] = new Exit(player);
-                } else {
-                    cells[i][j] = new Empty(player);
+                }
+                if (i == 0 && j == 0){
+                    cells[i][j] = new Entrance(player);
+                }
+                if(i== 2 && j==2){
+                    cells[i][j] = new Key(false,player);
+                }
+                else {
+                    cells[i][j] = loadRandTrap();
                 }
             }
         }
@@ -47,6 +58,39 @@ public class Board {
             }
         }
     }
+
+
+    /**
+     * Method hard codes traps into level 1
+     * Hard Coded so that we can have exact control over how many traps
+     * are in the maze and the difficulty.
+     */
+
+    public void trapListD1(){
+        //traps.add(new Key(true, player));
+        traps.add(new Wall());
+        traps.add(new Empty(player));
+        traps.add(new BackPack_Refil());
+        traps.add(new Healing_Trap(player));
+
+    }
+
+    /**
+     * this will probably move out of trap
+     * selects a trap from the list at random and then loads it into trap.
+     * @return
+     */
+
+    public Cell loadRandTrap(){
+        int randNum = rand.nextInt(traps.size()); /* additional int must be changed with the number of known traps that
+                                                        must be inserted.  Such as (Key), (Entrance) */
+        return traps.get(randNum);
+    }
+
+
+
+
+
 
     /**
      * prints the boardView array in a visual console format

@@ -30,10 +30,13 @@ public class Board {
         boardView = new Cell[5][5];
         // TODO: random generation of traps in the map
         // currently initializes entire board to be empty
-        cells[BOARD_SIZE-1][BOARD_SIZE-1] = new Exit(player);
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++) {
-                cells[i][j] = new Empty(player);
+                if (i == BOARD_SIZE-1 && j == BOARD_SIZE-1){
+                    cells[i][j] = new Exit(player);
+                } else {
+                    cells[i][j] = new Empty(player);
+                }
             }
         }
 

@@ -5,8 +5,6 @@ public class Healing_Trap extends Trap{
         this.p1 = player;
     }
 
-
-
     public void refillHealth(int rateOfHealing){
         // want to change this so that the player is healed at an amount per second.
         // And movement is blocked while healing is taking place.

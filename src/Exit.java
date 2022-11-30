@@ -1,9 +1,15 @@
 public class Exit extends Cell{
-    public Exit(){}
+    private Player p1;
+    private boolean hasKey;
 
-//    public boolean keyFound(){}
-//
-//    public String gameWon(){}
-//
-//    public String noKey(){}
+
+    public Exit(Player player){
+        this.p1 = player;
+        this.hasKey = p1.hasKey();
+    }
+
+
+    public boolean endGameTest(){
+        return hasKey;
+    }
 }

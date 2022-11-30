@@ -16,13 +16,16 @@ public class Trap extends Cell{
 
     public void loadTrapsL1(){
         traps.add(new Key(true, p1));
-        traps.add(new Healing_Trap(p1));
-        //traps.add();
+
+        //traps.add(new Healing_Trap(p1));
+
 
     }
 
     public Cell randTrap(){
-        int randNum = rand.nextInt(traps.size()) +1; /* additional int must be changed with the number of known traps that
+
+        //for(int i =0; i < )
+        int randNum = rand.nextInt(traps.size()); /* additional int must be changed with the number of known traps that
                                                         must be inserted.  Such as (Key), (Entrance) */
         return traps.get(randNum);
     }

@@ -25,6 +25,7 @@ public class Player {
      */
     public void move(char direction){
         if (direction == 'w' && location.getY()>0) {
+            System.out.println("You found a wall, rerouting is needed");
             location.setLocation(location.getX(), location.getY()-1);
         }
         if (direction == 's' && location.getY()<BOARD_SIZE) {

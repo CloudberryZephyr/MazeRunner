@@ -2,7 +2,8 @@ import java.util.ArrayList;
 
 public class Player {
     private ArrayList<String> backPack;
-    public int health;    //MAX changed this to public so that i can access in health trap
+    private int health;
+    private int maxHealth;
     private Location location;
     private final int BOARD_SIZE;
 
@@ -13,6 +14,7 @@ public class Player {
     public Player(int boardSize){
         backPack = new ArrayList<>();
         health = 50; // set initial health to 50, we'll see if this is practical or not
+        maxHealth = 50;
         location = new Location(0, 0); // starts the player in the top left corner by default
         this.BOARD_SIZE = boardSize;
     }
@@ -58,6 +60,14 @@ public class Player {
      */
     public int getHealth(){
         return health;
+    }
+
+    /**
+     *
+     * @return int value of maxHealth
+     */
+    public int getMaxHealth(){
+        return maxHealth;
     }
 
     /**

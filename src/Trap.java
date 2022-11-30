@@ -15,7 +15,8 @@ public class Trap extends Cell{
     }
 
     public void loadTrapsL1(){
-        traps.add(new Key(p1));
+        traps.add(new Key(true, p1));
+        traps.add(new Healing_Trap(p1));
         //traps.add();
 
     }

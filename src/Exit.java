@@ -9,7 +9,6 @@ public class Exit extends Cell{
     }
 
 
-
     public boolean endGameTest(){
         return hasKey;
     }

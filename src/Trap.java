@@ -14,11 +14,11 @@ public class Trap extends Cell{
         //this.p1 = player;
     }
 
+
     public void loadTrapsL1(){
         traps.add(new Key(true, p1));
 
         //traps.add(new Healing_Trap(p1));
-
 
     }
 

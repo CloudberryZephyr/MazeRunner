@@ -5,10 +5,10 @@ public class Cell {
     private boolean known;
     ArrayList<Monster> veryScaryMonster;
 
-    public Cell(){}
-
 
     public boolean hasEntered(){
         return false;
     }
+
+    // need getter and setter for has entered
 }

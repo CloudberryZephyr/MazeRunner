@@ -63,7 +63,7 @@ public class Player {
     }
 
     /**
-     *
+     * getter for maxHealth data member
      * @return int value of maxHealth
      */
     public int getMaxHealth(){

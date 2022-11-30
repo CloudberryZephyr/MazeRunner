@@ -74,7 +74,7 @@ public class Player {
      * method for determining if the player has picked up the key in the past
      * @return boolean value - true if the key has been picked up, false if it has not
      */
-    private boolean hasKey(){
+    public boolean hasKey(){
         return backPack.contains("key");
     }
 
@@ -90,7 +90,7 @@ public class Player {
      * fills backpack according to difficulty level
      */
     public void fillBackpack(){
-
+        //TODO finish this method
     }
 
     /**

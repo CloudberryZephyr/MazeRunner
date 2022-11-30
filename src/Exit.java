@@ -13,4 +13,13 @@ public class Exit extends Cell{
     public boolean endGameTest(){
         return hasKey;
     }
+
+    @Override
+    public String toString(){
+        if (known){
+            return "@";
+        } else {
+            return "*";
+        }
+    }
 }

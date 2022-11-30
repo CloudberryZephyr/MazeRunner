@@ -1,3 +1,11 @@
 public class Wall extends Cell{
-    //doesn't need code
+
+    @Override
+    public String toString(){
+        if(known){
+            return "W";
+        } else {
+            return "*";
+        }
+    }
 }

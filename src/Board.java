@@ -1,18 +1,18 @@
-import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * @author Clara Shoemaker
- * @version 1.4
+ * @version 1.5
  */
 public class Board {
     // data members
     private Cell[][] cells;
     private Cell[][] boardView;
-    private ArrayList<Monster> monsters;
     private int difficulty;
     private final int BOARD_SIZE;
     private Player player;
 
+    private Random rand;
 
     /**
      * Constructor class - initializes all data members, constructs the board of play according to a given difficulty
@@ -25,17 +25,24 @@ public class Board {
         this.player = player;
         //BOARD_SIZE = difficulty + 9;  Possible changes to board size depending on game difficulty
         BOARD_SIZE = boardSize;
+        rand = new Random();
 
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
         // TODO: random generation of traps in the map
-        // currently initializes entire board to be empty
+        // currently initializes the base board in a default setting - no traps
+        int keyRow = rand.nextInt(1, BOARD_SIZE);
+        int keyCol = rand.nextInt(1, BOARD_SIZE);
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++) {
-                if (i == BOARD_SIZE-1 && j == BOARD_SIZE-1){
+                if (i==0 && j==0){
+                    cells[i][j] = new Entrance(player);
+                } else if (i == BOARD_SIZE-1 && j == BOARD_SIZE-1){
                     cells[i][j] = new Exit(player);
+                } else if (i==keyRow && j == keyCol){
+                    cells[i][j] = new Key(player.hasKey(), player);
                 } else {
-                    cells[i][j] = new Empty(player);
+                        cells[i][j] = new Empty(player);
                 }
             }
         }

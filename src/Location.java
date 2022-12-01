@@ -1,6 +1,6 @@
 /**
  * @author Clara Shoemaker
- * @version 1.1
+ * @version 1.2
  */
 public class Location {
     private int x;
@@ -16,6 +16,15 @@ public class Location {
     public Location(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    /**
+     * Copy constructor for Location class
+     * @param loc Location object to be copied
+     */
+    public Location(Location loc){
+        x = loc.x;
+        y = loc.y;
     }
 
     /**

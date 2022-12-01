@@ -52,4 +52,19 @@ public class Location {
     public int getY(){
         return y;
     }
+
+    @Override
+    public boolean equals(Object other){
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof Location)) {
+            return false;
+        }
+        Location loc = (Location)other;
+        if(loc.x==this.x && loc.y==this.y) {
+            return true;
+        }
+        return false;
+    }
 }

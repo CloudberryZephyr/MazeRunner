@@ -142,4 +142,14 @@ public class Board {
             System.out.println();
         }
     }
+
+    /**
+     * Returns the cell object at a given location in the cells array
+     * @param x row value for desired location
+     * @param y column value for desired location
+     * @return Cell object at desired location in cells array
+     */
+    public Cell getCellAt(int x, int y) {
+        return cells[x][y];
+    }
 }

@@ -12,4 +12,13 @@ public class Empty extends Cell{
         System.out.println("this is a safe place, an empty room, that will not harm you");
 
     }
+
+    @Override
+    public String toString() {
+        if (known) {
+            return " ";
+        } else {
+            return "*";
+        }
+    }
 }

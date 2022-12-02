@@ -1,22 +1,32 @@
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
 
+/**
+ * @author Clara Shoemaker
+ * @version 1.2
+ */
 public class Player {
-    private ArrayList<String> backPack;
+    private Set<String> backPack;
     private int health;
     private int maxHealth;
     private Location location;
     private final int BOARD_SIZE;
+    private LinkedList<Location> path;
+
 
     /**
      * player constructor method
      * TODO: determine what to give the player initially
      */
     public Player(int boardSize){
-        backPack = new ArrayList<>();
+        backPack = new HashSet<>();
         health = 50; // set initial health to 50, we'll see if this is practical or not
         maxHealth = 50;
         location = new Location(0, 0); // starts the player in the top left corner by default
         this.BOARD_SIZE = boardSize;
+        path = new LinkedList<>();
+
     }
 
     /**
@@ -24,6 +34,7 @@ public class Player {
      * @param direction string representation of the four movement options: up, down, left, and right
      */
     public void move(char direction){
+        // changes the player's location according to the given direction
         if (direction == 'w' && location.getY()>0) {
             System.out.println("You found a wall, rerouting is needed");
             location.setLocation(location.getX(), location.getY()-1);
@@ -37,6 +48,9 @@ public class Player {
         if (direction == 'd' && location.getX()<BOARD_SIZE) {
             location.setLocation(location.getX()+1, location.getY());
         }
+
+        // adds the new location to a player path for use by SmartMonsters
+        path.add(new Location(location));
     }
 
     /**
@@ -98,7 +112,15 @@ public class Player {
      * getter for backpack ArrayList
      * @return object reference for ArrayList object backpack
      */
-    public ArrayList<String> getBackPack(){
+    public Set<String> getBackPack(){
         return backPack;
+    }
+
+    /**
+     * getter for path data member
+     * @return LinkedList of all past locations travelled by the player, in order.
+     */
+    public LinkedList<Location> getPath(){
+        return path;
     }
 }

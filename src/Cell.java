@@ -2,13 +2,12 @@
 import java.util.ArrayList;
 
 public class Cell {
-    private boolean known;
-    ArrayList<Monster> veryScaryMonster;
+    protected boolean known;
 
 
 
-    public boolean hasEntered(){
-        return false;
+    public boolean isKnown(){
+        return known;
     }
 
     // need getter and setter for has entered

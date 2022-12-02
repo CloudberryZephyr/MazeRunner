@@ -1,6 +1,6 @@
 /**
  * @author Clara Shoemaker
- * @version 1.1
+ * @version 1.2
  */
 public class Location {
     private int x;
@@ -16,6 +16,15 @@ public class Location {
     public Location(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    /**
+     * Copy constructor for Location class
+     * @param loc Location object to be copied
+     */
+    public Location(Location loc){
+        x = loc.x;
+        y = loc.y;
     }
 
     /**
@@ -42,5 +51,20 @@ public class Location {
      */
     public int getY(){
         return y;
+    }
+
+    @Override
+    public boolean equals(Object other){
+        if (other == this) {
+            return true;
+        }
+        if (!(other instanceof Location)) {
+            return false;
+        }
+        Location loc = (Location)other;
+        if(loc.x==this.x && loc.y==this.y) {
+            return true;
+        }
+        return false;
     }
 }

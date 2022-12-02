@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -30,6 +31,7 @@ public class Board {
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
         // TODO: random generation of traps in the map
+
         // currently initializes the base board in a default setting - no traps
         int keyRow = rand.nextInt(1, BOARD_SIZE);
         int keyCol = rand.nextInt(1, BOARD_SIZE);
@@ -152,4 +154,28 @@ public class Board {
     public Cell getCellAt(int x, int y) {
         return cells[x][y];
     }
+
+    /**
+     * adds traps to cell array to create randomized board
+     * @param difficulty int value of level difficulty
+     */
+    public void randomizeTraps(int difficulty) {
+        ArrayList<Cell> traps = new ArrayList<>();
+
+        if(difficulty==1){
+            traps.add(new Key(true, player));
+            traps.add(new Wall());
+            traps.add(new Empty(player));
+            traps.add(new BackPack_Refil());
+            //traps.add(new Healing_Trap(p1));
+        } else if (difficulty==2) {
+            traps.add(new Key(true, player));
+            traps.add(new Wall());
+            traps.add(new Empty(player));
+
+            //traps.add(new Healing_Trap(p1));
+        }
+    }
+
+    public int getBOARD_SIZE(){return BOARD_SIZE;}
 }

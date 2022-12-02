@@ -14,24 +14,30 @@ public class Main {
 
     private Stack<Cell> playerPath;
 
+    public static void main(String[] args) {
+
+    }
+
     public void gameLoop(){
-        int level =0;
-
-
         System.out.println("Welcome to the Maze Runner game please, select the difficulty 1-3 that you would like to play with");
-        level = user.nextInt();
+        int level = user.nextInt();
         createGame(level);
 
-        if(level == 0 || level > 3){ // if Integer input is invalid this tries again
-            System.out.println("input invalid, please enter a number 1-3");
-            level= user.nextInt();
-            createGame(level);
-        } else{ // if input is in the form of a String this corrects it
-            level = stringToInt(user.nextLine());
-            createGame(level);
-        }
+
+//        if(level == 0 || level > 3){ // if Integer input is invalid this tries again
+//            System.out.println("input invalid, please enter a number 1-3");
+//            level= user.nextInt();
+//            createGame(level);
+//        } else if(level == String){ // if input is in the form of a String this corrects it
+//            level = stringToInt(user.nextLine());
+//            createGame(level);
+//        }
     }
-    public void PlayerMove(){}
+    public void PlayerMove(){
+
+
+
+    }
 
 
     /**
@@ -62,23 +68,21 @@ public class Main {
         return choice;
     }
 
-    public void createGame(int level){
-        if(user.nextInt()==1 ) {
-            level = user.nextInt();
-            Board b1 = new Board(level, p1, L1BoardSize);
+    public Board createGame(int Diff){
+
+        if(Diff==1 ) {
+            return new Board(Diff, p1, L1BoardSize);
         }
-        if(user.nextInt()==2) {
-            level = user.nextInt();
-            Board b2 = new Board(level, p2, L2BoardSize);
+        if(Diff==2) {
+            return new Board(Diff, p2, L2BoardSize);
         }
-        if(user.nextInt()==3){
-            level = user.nextInt();
-            Board b1 = new Board(level, p3, L3BoardSize);
+        if(Diff==3){
+            return new Board(Diff, p3, L3BoardSize);
         }
 
+        return new Board(Diff, p1, L1BoardSize);
 
     }
-
 }
 
 

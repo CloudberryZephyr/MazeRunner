@@ -14,6 +14,7 @@ public class Board {
 
     private Random rand;
 
+
     /**
      * Constructor class - initializes all data members, constructs the board of play according to a given difficulty
      *

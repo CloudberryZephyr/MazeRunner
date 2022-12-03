@@ -45,7 +45,8 @@ public class Main {
                 System.out.println("Input invalid, please enter an integer 1-3");
             }
 
-            //TODO Need to tell the new player object that they are in cell[0][0] to print start up message. or move start up message
+            //TODO Answered - I think it would make the most sense to move the start-up message into this class so it can be printed both
+            // at the start of the game and when the player asks for it using a specific input, independent of the player's location.
 
         }
     }
@@ -64,9 +65,7 @@ public class Main {
 
             boolean moveI = false;
             while (!moveI) {
-                //TODO need to add the player view into this class, currently, prompts player to move but i have no
-                //      idea how or where im moving.
-                //TODO also need to work in payer path??
+                //TODO Answered - player path is automatically updated when the player moves
 
                 String moveChoice = scan.nextLine().toLowerCase(Locale.ROOT);
 
@@ -88,8 +87,10 @@ public class Main {
 
                 } else {
                     moveI = false;
-                    System.out.println("Input invalid, please re-inter movement input: W, S, D");
+                    System.out.println("Input invalid, please re-inter movement input: W, A, S, D");
                 }
+                // TODO answered - this should allow the player to see their current location in console
+                BL1.printBoard(p1);
             }
         }
     }

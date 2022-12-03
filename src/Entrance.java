@@ -13,7 +13,7 @@ public class Entrance extends Cell {
         System.out.println(p1.getBackPack());
         System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +
                 "There are rooms that refill your bag but those are a rare find");
-    }
+    } // TODO Tell player what buttons = move commands
 
     /**
      * Entrance message for Level 1

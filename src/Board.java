@@ -12,8 +12,8 @@ public class Board {
     private int difficulty;
     private final int BOARD_SIZE;
     private Player player;
-
     private Random rand;
+
 
     /**
      * Constructor class - initializes all data members, constructs the board of play according to a given difficulty

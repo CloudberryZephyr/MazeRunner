@@ -20,7 +20,7 @@ public class SmartMonster extends Monster{
      */
     @Override
     public void move(){
-        if (level.getCellAt(location.getX(), location.getY()).isKnown()){
+        if (player.doesPathContain( new Location(location.getX(), location.getY()))){
             int placeInPlayerPath=0;
             for(Location loc : player.getPath()) {
                 if(location.equals(loc)) {

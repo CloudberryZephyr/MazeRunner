@@ -13,6 +13,7 @@ public class Board {
     private final int BOARD_SIZE;
     private Player player;
     private Random rand;
+    private ArrayList<Cell> traps;
 
 
     /**
@@ -35,6 +36,7 @@ public class Board {
         // currently initializes the base board in a default setting - no traps
         int keyRow = rand.nextInt(1, BOARD_SIZE);
         int keyCol = rand.nextInt(1, BOARD_SIZE);
+        initializeTraps(difficulty);
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++) {
                 if (i==0 && j==0){
@@ -44,7 +46,7 @@ public class Board {
                 } else if (i==keyRow && j == keyCol){
                     cells[i][j] = new Key(player.hasKey(), player);
                 } else {
-                        cells[i][j] = new Empty(player);
+                        cells[i][j] = traps.get(rand.nextInt(0,traps.size()));
                 }
             }
         }
@@ -60,10 +62,10 @@ public class Board {
     /**
      * prints the boardView array in a visual console format
      */
-    public void printBoard(Location location) {
+    public void printBoard(Player player) {
         //STUB
-        int playerRow = location.getY();//player.getLocation().getX();
-        int playerCol = location.getX();//player.getLocation().getY();
+        int playerRow = player.getLocation().getX();
+        int playerCol = player.getLocation().getY();
         if (playerRow >= 2) {
             if ( (playerCol >= 2) && (BOARD_SIZE - playerCol >= 2)) { // non-edge board view
                 for (int i = -2; i<3; i++) {
@@ -159,21 +161,22 @@ public class Board {
      * adds traps to cell array to create randomized board
      * @param difficulty int value of level difficulty
      */
-    public void randomizeTraps(int difficulty) {
-        ArrayList<Cell> traps = new ArrayList<>();
+    public void initializeTraps(int difficulty) {
+        traps = new ArrayList<>();
 
         if(difficulty==1){
-            traps.add(new Key(true, player));
             traps.add(new Wall());
             traps.add(new Empty(player));
             traps.add(new BackPack_Refil());
-            //traps.add(new Healing_Trap(p1));
+            //traps.add(new Healing_Trap(player));
+
         } else if (difficulty==2) {
-            traps.add(new Key(true, player));
             traps.add(new Wall());
             traps.add(new Empty(player));
 
-            //traps.add(new Healing_Trap(p1));
+            //traps.add(new Healing_Trap(player));
+        } else if (difficulty==0){
+            traps.add(new Empty(player));
         }
     }
 

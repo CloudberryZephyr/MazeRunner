@@ -123,4 +123,18 @@ public class Player {
     public LinkedList<Location> getPath(){
         return path;
     }
+
+    /**
+     * determines whether the path ArrayList contains a location identical to a given Location object
+     * @param loc Location object whose data members are equal to the desired object in path ArrayList
+     * @return whether an identical Location object has been found in path
+     */
+    public boolean doesPathContain(Location loc) {
+        for (Location place : path){
+            if (place.equals(loc)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

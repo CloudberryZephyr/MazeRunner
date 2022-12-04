@@ -47,10 +47,6 @@ public class Main {
                 levelI = false;
                 System.out.println("Input invalid, please enter an integer 1-3");
             }
-
-            //TODO Answered - I think it would make the most sense to move the start-up message into this class so it can be printed both
-            // at the start of the game and when the player asks for it using a specific input, independent of the player's location.
-
         }
     }
 
@@ -64,7 +60,7 @@ public class Main {
         int size = BL1.getBOARD_SIZE();
         while ((!p1.hasKey()) && (p1.getLocation().getX() != size - 1) && (p1.getLocation().getY() != size - 1)) {
 
-            //System.out.println("Press: W to move forward, S to move back, A to move left, D to move right");
+            System.out.println("Press: W to move forward, S to move back, A to move left, D to move right");
 
             boolean moveI = false;
             while (!moveI) {
@@ -91,10 +87,10 @@ public class Main {
                     BL1.printBoard(p1);
                     moveI = true;
                 }else if (moveChoice.equals("r")) {
-                    //TODO make info that can be constantly be accessed (copy start up message level 2)
+
                     System.out.println("To move press: W, S, A, D. To access rules and instructions press: R. To see items in your \n"+
                                        "backpack inventory press: I.");
-                    System.out.println("Your objective is to stay alive and find a key, then exit the maze, if you do not have \n " +
+                    System.out.println("Your objective is to stay alive and find a key, use items in your bag to accomplish this, then exit the maze, if you do not have \n " +
                             "the key upon reaching the exit you will not be able to exit the maze\n" +
                             "Good Luck Maze Runner, and lookout for the monster\n\n");
 

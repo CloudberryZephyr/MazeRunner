@@ -21,13 +21,16 @@ public class Main {
 
 
     /**
-     * determines game level, and creates new board and player
+     * prompts for username, determines game level, and creates new board and player
      */
     public static void gameStart() {
+        System.out.println("Please enter username:");
+        String userName = scan.nextLine();          //TODO make sure no bugs here
 
-        System.out.println("Choose your level");
+
+
+        System.out.println("\nChoose your difficulty");
         int level = scan.nextInt();
-
         boolean levelI = false;
 
         while (!levelI) {
@@ -54,7 +57,7 @@ public class Main {
 
     /**
      * this is the player movement and game loop method. this allows the player to move
-     * until they have found the key and have entered the exit cell.
+     * until they have found the key and have entered the exit cell. Includes all in-game player I\O.
      */
 
     public static void gameLoop() {
@@ -65,32 +68,49 @@ public class Main {
 
             boolean moveI = false;
             while (!moveI) {
-                //TODO Answered - player path is automatically updated when the player moves
 
                 String moveChoice = scan.nextLine().toLowerCase(Locale.ROOT);
 
                 if (moveChoice.equals("w")) {
                     p1.move('w');
+                    BL1.printBoard(p1);
                     moveI = true;
 
                 } else if (moveChoice.equals("s")) {
                     p1.move('s');
+                    BL1.printBoard(p1);
                     moveI = true;
 
                 } else if (moveChoice.equals("a")) {
                     p1.move('a');
+                    BL1.printBoard(p1);
                     moveI = true;
 
                 } else if (moveChoice.equals("d")) {
                     p1.move('d');
+                    BL1.printBoard(p1);
                     moveI = true;
+                }else if (moveChoice.equals("r")) {
+                    //TODO make info that can be constantly be accessed (copy start up message level 2)
+                    System.out.println("To move press: W, S, A, D. To access rules and instructions press: R. To see items in your \n"+
+                                       "backpack inventory press: I.");
+                    System.out.println("Your objective is to stay alive and find a key, then exit the maze, if you do not have \n " +
+                            "the key upon reaching the exit you will not be able to exit the maze\n" +
+                            "Good Luck Maze Runner, and lookout for the monster\n\n");
 
-                } else {
-                    moveI = false;
-                    System.out.println("Input invalid, please re-inter movement input: W, A, S, D");
+                    moveI = true;
                 }
-                // TODO answered - this should allow the player to see their current location in console
-                BL1.printBoard(p1);
+                else if (moveChoice.equals("i")) {// prints backpack for player to see
+                    System.out.println("These are the items in your backpack");
+                    System.out.println(p1.getBackPack());
+                    System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +
+                            "There are rooms that refill your bag but those are a rare find");
+                } else {
+                    System.out.println("Input invalid\n Please re-inter movement input: W, A, S, D. \n" +
+                            "Press: I, to view backpack inventory \n" + "Press: R, to print rules and instructions");
+                    moveI = false;
+                    BL1.printBoard(p1);
+                }
             }
         }
     }

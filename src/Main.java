@@ -63,7 +63,7 @@ public class Main {
                 BL1 = new Board(2, p2, 15);
                 levelI = true;
             } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= problem
-                BL1 = new Board(2, p3, 20);
+                BL1 = new Board(3, p3, 20);
                 levelI = true;
             } else {
                 levelI = false;

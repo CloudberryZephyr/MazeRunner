@@ -13,19 +13,19 @@ public class Main {
 
 
     public static void main(String[] args) {
-//        System.out.println("you have entered the maze and are at location 0,0\n" +
-//                "you have the option to move anywhere within the maze unless you encounter a wall.\n" +
-//                "If you find a wall you must reroute.\n \n" +
-//                "To move press: W, S, A, D. To access these rules again press: R. To see items in your \n" +
-//                "backpack inventory press: I. \n");
-//        System.out.println("These are the items in your backpack");
-//        System.out.println(p1.getBackPack());
-//        System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +
-//                "There are rooms that refill your bag but those are a rare find");
-//
-//        System.out.println("Your objective is to stay alive and find a key, then exit the maze, if you do not have \n " +
-//                "the key upon reaching the exit you will not be able to exit the maze\n" +
-//                "Good Luck Maze Runner, and by the way, lookout for the roaming monster\n\n");
+        System.out.println("you have entered the maze and are at location 0,0\n" +
+                "you have the option to move anywhere within the maze unless you encounter a wall.\n" +
+                "If you find a wall you must reroute.\n \n" +
+                "To move press: W, S, A, D. To access these rules again press: R. To see items in your \n" +
+                "backpack inventory press: I. \n");
+        System.out.println("These are the items in your backpack");
+        System.out.println(p1.getBackPack());
+        System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +
+                "There are rooms that refill your bag but those are a rare find");
+
+        System.out.println("Your objective is to stay alive and find a key, then exit the maze, if you do not have \n " +
+                "the key upon reaching the exit you will not be able to exit the maze\n" +
+                "Good Luck Maze Runner, and by the way, lookout for the roaming monster\n\n");
         gameStart();
         gameLoop();
     }
@@ -84,9 +84,10 @@ public class Main {
 
         while ((!p1.hasKey()) && (p1.getLocation().getX() != size - 1) && (p1.getLocation().getY() != size - 1)) {
             boolean moveI = false;
-            while (!moveI) {
 
+            while (!moveI) {
                 String moveChoice = scan.nextLine().toLowerCase(Locale.ROOT);
+                System.out.println(moveChoice);
 
                 if (moveChoice.equals("w")) {
                     p1.move('w');
@@ -121,9 +122,8 @@ public class Main {
                    System.out.println(p1.getBackPack());
                     System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n");
                 }
-                else if (moveChoice.equals(" ")) {
-                    System.out.println("ist");
-                    //FIXME problem in first itteration of while loop, prints out mis-input error warning for movement
+                else if (moveChoice.equals("")) {
+
                 } else {
                     System.out.println("Input invalid\nPlease re-inter movement input: W, A, S, D. \n" +
                             "Press: I, to view backpack inventory \n" + "Press: R, to print rules and instructions");

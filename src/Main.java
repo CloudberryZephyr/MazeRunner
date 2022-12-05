@@ -87,7 +87,7 @@ public class Main {
 
             while (!moveI) {
                 String moveChoice = scan.nextLine().toLowerCase(Locale.ROOT);
-                System.out.println(moveChoice);
+
 
                 if (moveChoice.equals("w")) {
                     p1.move('w');

@@ -13,7 +13,7 @@ public class Entrance extends Cell {
         System.out.println(p1.getBackPack());
         System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +
                 "There are rooms that refill your bag but those are a rare find");
-    } // TODO Tell player what buttons = move commands
+    }
 
     /**
      * Entrance message for Level 1
@@ -21,8 +21,9 @@ public class Entrance extends Cell {
     public void PrintMessageL1() {
         System.out.println("you have entered the maze and are at location 0,0\n" +
                 "you have the option to move anywhere within the maze unless you encounter a wall.\n" +
-                "If you find a wall you must reroute.\n \n");
-
+                "If you find a wall you must reroute.\n \n" +
+                "To move press: W, S, A, D. To access these rules again press: R. To see items in your \n" +
+                "backpack inventory press: I. \n");
                 System.out.println("These are the items in your backpack");
         System.out.println(p1.getBackPack());
         System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +

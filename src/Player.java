@@ -106,6 +106,7 @@ public class Player {
      */
     public void fillBackpack(){
         //TODO finish this method
+        backPack.add("Nuke");
     }
 
     /**

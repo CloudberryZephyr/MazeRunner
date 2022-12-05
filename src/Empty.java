@@ -13,8 +13,12 @@ public class Empty extends Cell{
 
     }
 
-    @Override
-    public String toString() {
-        return " ";
-    }
+//    @Override
+//    public String toString() {
+//        if (known) {
+//            return " ";
+//        } else {
+//            return "*";
+//        }
+//    }
 }

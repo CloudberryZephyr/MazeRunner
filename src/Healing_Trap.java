@@ -13,9 +13,13 @@ public class Healing_Trap extends Trap{
         p1.gainHealth(fillAmt);
     }
 
-    @Override
-    public String toString(){
-        return "+";
-    }
+//    @Override
+//    public String toString(){
+//        if(known){
+//            return "+";
+//        }else{
+//            return "*";
+//        }
+//    }
 
 }

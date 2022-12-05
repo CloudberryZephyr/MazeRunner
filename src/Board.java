@@ -141,7 +141,7 @@ public class Board {
                 } else if (player.doesPathContain(new Location(i,j))) {
                     System.out.print(boardView[i][j].toString() + " ");
                 } else {
-                    System.out.println("* ");
+                    System.out.print("* ");
                 }
             }
             System.out.println();

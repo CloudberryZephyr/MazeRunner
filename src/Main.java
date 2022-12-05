@@ -13,11 +13,28 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+//        System.out.println("you have entered the maze and are at location 0,0\n" +
+//                "you have the option to move anywhere within the maze unless you encounter a wall.\n" +
+//                "If you find a wall you must reroute.\n \n" +
+//                "To move press: W, S, A, D. To access these rules again press: R. To see items in your \n" +
+//                "backpack inventory press: I. \n");
+//        System.out.println("These are the items in your backpack");
+//        System.out.println(p1.getBackPack());
+//        System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +
+//                "There are rooms that refill your bag but those are a rare find");
+//
+//        System.out.println("Your objective is to stay alive and find a key, then exit the maze, if you do not have \n " +
+//                "the key upon reaching the exit you will not be able to exit the maze\n" +
+//                "Good Luck Maze Runner, and by the way, lookout for the roaming monster\n\n");
         gameStart();
         gameLoop();
-
     }
+    //TODO cur bugs
+    // 1) board view gives error if it tries to go outside the arrayList index
+    // 2) printBoard is returning memory addresses.
+    // 3) there may be no exit cell.
+    // 4) first itteration of loop returns "invalid input"
+
 
 
     /**
@@ -25,22 +42,23 @@ public class Main {
      */
     public static void gameStart() {
         System.out.println("Please enter username:");
-        String userName = scan.nextLine();          //TODO make sure no bugs here
+        String userName = scan.nextLine();
 
 
 
         System.out.println("\nChoose your difficulty");
-        int level = scan.nextInt();
         boolean levelI = false;
 
         while (!levelI) {
-            if (level == 1) {
+            String level = scan.next();
+
+            if (level.equals("1")) {
                 BL1 = new Board(1, p1, 5);
                 levelI = true;
-            } else if (level == 2) {
+            } else if (level.equals("2")) {
                 BL1 = new Board(2, p2, 15);
                 levelI = true;
-            } else if (level == 3) {
+            } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= would fix
                 BL1 = new Board(3, p3, 20);
                 levelI = true;
             } else {
@@ -58,10 +76,9 @@ public class Main {
 
     public static void gameLoop() {
         int size = BL1.getBOARD_SIZE();
+        System.out.println(" \nPress: W to move forward, S to move back, A to move left, D to move right");
+
         while ((!p1.hasKey()) && (p1.getLocation().getX() != size - 1) && (p1.getLocation().getY() != size - 1)) {
-
-            System.out.println("Press: W to move forward, S to move back, A to move left, D to move right");
-
             boolean moveI = false;
             while (!moveI) {
 
@@ -86,26 +103,27 @@ public class Main {
                     p1.move('d');
                     BL1.printBoard(p1);
                     moveI = true;
-                }else if (moveChoice.equals("r")) {
-
+                }
+                else if (moveChoice.equals("r")) {
                     System.out.println("To move press: W, S, A, D. To access rules and instructions press: R. To see items in your \n"+
                                        "backpack inventory press: I.");
                     System.out.println("Your objective is to stay alive and find a key, use items in your bag to accomplish this, then exit the maze, if you do not have \n " +
                             "the key upon reaching the exit you will not be able to exit the maze\n" +
                             "Good Luck Maze Runner, and lookout for the monster\n\n");
-
                     moveI = true;
                 }
                 else if (moveChoice.equals("i")) {// prints backpack for player to see
                     System.out.println("These are the items in your backpack");
-                    System.out.println(p1.getBackPack());
-                    System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n" +
-                            "There are rooms that refill your bag but those are a rare find");
+                   System.out.println(p1.getBackPack());
+                    System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n");
+                }
+                else if (moveChoice.equals(" ")) {
+                    System.out.println("ist");
+                    //FIXME problem in first itteration of while loop, prints out mis-input error warning for movement
                 } else {
-                    System.out.println("Input invalid\n Please re-inter movement input: W, A, S, D. \n" +
+                    System.out.println("Input invalid\nPlease re-inter movement input: W, A, S, D. \n" +
                             "Press: I, to view backpack inventory \n" + "Press: R, to print rules and instructions");
                     moveI = false;
-                    BL1.printBoard(p1);
                 }
             }
         }

@@ -15,12 +15,12 @@ public class Exit extends Cell{
         return hasKey;
     }
 
-//    @Override
-//    public String toString(){
-//        if (known){
-//            return "@";
-//        } else {
-//            return "*";
-//        }
-//    }
+    @Override
+    public String toString(){
+        if (known){
+            return "@";
+        } else {
+            return "*";
+        }
+    }
 }

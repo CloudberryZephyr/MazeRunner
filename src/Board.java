@@ -165,7 +165,7 @@ public class Board {
     public void initializeTraps(int difficulty) {
         traps = new ArrayList<>();
 
-        if(difficulty==1){
+        if(difficulty==3){
             traps.add(new Wall());
             traps.add(new Empty(player));
             traps.add(new BackPack_Refil());
@@ -176,7 +176,7 @@ public class Board {
             traps.add(new Empty(player));
 
             //traps.add(new Healing_Trap(player));
-        } else if (difficulty==0){
+        } else if (difficulty==1){
             traps.add(new Empty(player));
         }
     }

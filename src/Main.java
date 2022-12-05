@@ -37,6 +37,10 @@ public class Main {
 
 
 
+
+
+
+
     /**
      * prompts for username, determines game level, and creates new board and player
      */
@@ -46,7 +50,7 @@ public class Main {
 
 
 
-        System.out.println("\nChoose your difficulty");
+        System.out.println("\nChoose your difficulty, integer: from 1-3");
         boolean levelI = false;
 
         while (!levelI) {
@@ -58,8 +62,8 @@ public class Main {
             } else if (level.equals("2")) {
                 BL1 = new Board(2, p2, 15);
                 levelI = true;
-            } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= would fix
-                BL1 = new Board(3, p3, 20);
+            } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= problem
+                BL1 = new Board(2, p3, 20);
                 levelI = true;
             } else {
                 levelI = false;

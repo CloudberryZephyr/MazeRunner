@@ -17,10 +17,6 @@ public class Exit extends Cell{
 
     @Override
     public String toString(){
-        if (known){
-            return "@";
-        } else {
-            return "*";
-        }
+        return "@";
     }
 }

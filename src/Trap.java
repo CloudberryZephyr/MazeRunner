@@ -11,8 +11,6 @@ public class Trap extends Cell{
     public Trap(){
         //this.p1 = player;
     }
-
-    //public abstract toString();
 }
 
 

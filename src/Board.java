@@ -63,7 +63,6 @@ public class Board {
      * prints the boardView array in a visual console format
      */
     public void printBoard(Player player) {
-        //STUB
         int playerRow = player.getLocation().getX();
         int playerCol = player.getLocation().getY();
         if (playerRow >= 2) {
@@ -139,8 +138,10 @@ public class Board {
             for (int j = 0; j< boardView.length; j++) {
                 if(boardView[i][j] == cells[playerRow][playerCol]){
                     System.out.print(" U ");
-                } else {
+                } else if (player.doesPathContain(new Location(i,j))) {
                     System.out.print(boardView[i][j].toString() + " ");
+                } else {
+                    System.out.println("* ");
                 }
             }
             System.out.println();

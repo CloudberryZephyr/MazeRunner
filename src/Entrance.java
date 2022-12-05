@@ -48,5 +48,10 @@ public class Entrance extends Cell {
                 "Good Luck Maze Runner");
     }
 
+    @Override
+    public String toString(){
+        return "#";
+    }
+
 
 }

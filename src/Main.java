@@ -122,9 +122,8 @@ public class Main {
                    System.out.println(p1.getBackPack());
                     System.out.println("These can be used on any trap or monsters but keep in mind that you can only use them once.\n");
                 }
-                else if (moveChoice.equals(" ")) {
-                    System.out.println("ist");
-                    //FIXME problem in first itteration of while loop, prints out mis-input error warning for movement
+                else if (moveChoice.equals("")) {
+
                 } else {
                     System.out.println("Input invalid\nPlease re-inter movement input: W, A, S, D. \n" +
                             "Press: I, to view backpack inventory \n" + "Press: R, to print rules and instructions");

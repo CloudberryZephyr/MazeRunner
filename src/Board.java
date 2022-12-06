@@ -63,83 +63,17 @@ public class Board {
      * prints the boardView array in a visual console format
      */
     public void printBoard(Player player) {
-        int playerRow = player.getLocation().getX();
-        int playerCol = player.getLocation().getY();
-        if (playerRow >= 2) {
-            if ( (playerCol >= 2) && (BOARD_SIZE - playerCol >= 2)) { // non-edge board view
-                for (int i = -2; i<3; i++) {
-                    for (int j = -2; j<3; j++) {
-                        boardView[i + 2][j+2] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-            if ( (playerCol == 1) || (BOARD_SIZE - playerCol == 1)) {  // player position is 1 from the upper or lower edge
-                for (int i = -1; i<4; i++) {
-                    for (int j = -1; j<4; j++) {
-                        boardView[i + 1][j+1] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-            if ((playerCol == 0) || (BOARD_SIZE - playerCol == 0)) {  // player is positioned on the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = 0; j<5; j++) {
-                        boardView[i][j] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-        } else if (playerRow == 1) {  // Player's x is within 1 cell of the edge of the bounds
-            if ( (playerCol >= 2) && (BOARD_SIZE - playerCol >= 2)) { // non-edge board view
-                for (int i = -1; i<4; i++) {
-                    for (int j = -2; j<3; j++) {
-                        boardView[i + 1][j+2] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-            if ( (playerCol == 1) || (BOARD_SIZE - playerCol == 1)) {  // player position is 1 from the upper or lower edge
-                for (int i = -1; i<4; i++) {
-                    for (int j = -1; j<4; j++) {
-                        boardView[i + 1][j+1] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-            if ((playerCol == 0) || (BOARD_SIZE - playerCol == 0)) {  // player is positioned on the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = 0; j<5; j++) {
-                        boardView[i][j] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-        } else if (playerRow == 0) {  // player's x is on the edge of the bounds
-            if ( (playerCol >= 2) && (BOARD_SIZE - playerCol >= 2)) { // non-edge board view
-                for (int i = 0; i<5; i++) {
-                    for (int j = -2; j<3; j++) {
-                        boardView[i][j+2] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-            if ( (playerCol == 1) || (BOARD_SIZE - playerCol == 1)) {  // player position is 1 from the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = -1; j<4; j++) {
-                        boardView[i][j+1] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-            if ((playerCol == 0) || (BOARD_SIZE - playerCol == 0)) {  // player is positioned on the upper or lower edge
-                for (int i = 0; i<5; i++) {
-                    for (int j = 0; j<5; j++) {
-                        boardView[i][j] = cells[playerRow+i][playerCol+j];
-                    }
-                }
-            }
-        }
+        int playerX = player.getLocation().getX();
+        int playerY = player.getLocation().getY();
 
-        // Print out board
-        for(int i = 0; i< boardView.length; i++) {
-            for (int j = 0; j< boardView.length; j++) {
-                if(boardView[i][j] == cells[playerRow][playerCol]){
-                    System.out.print(" U ");
+        for (int i = 0; i<BOARD_SIZE; i++){
+            for (int j = 0; j<BOARD_SIZE; j++){
+                if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
+                    System.out.print("  ");
+                } else if (i == playerX && j == playerY) {
+                    System.out.print("U ");
                 } else if (player.doesPathContain(new Location(i,j))) {
-                    System.out.print(boardView[i][j].toString() + " ");
+                    System.out.print(cells[i][j].toString() + " ");
                 } else {
                     System.out.print("* ");
                 }

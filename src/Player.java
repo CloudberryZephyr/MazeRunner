@@ -35,17 +35,17 @@ public class Player {
      */
     public void move(char direction){
         // changes the player's location according to the given direction
-        if (direction == 'w' && location.getY()>0) {
+        if (direction == 'a' && location.getY()>0) {
             System.out.println("You found a wall, rerouting is needed");
             location.setLocation(location.getX(), location.getY()-1);
         }
-        if (direction == 's' && location.getY()<BOARD_SIZE) {
+        if (direction == 'd' && location.getY()<BOARD_SIZE) {
             location.setLocation(location.getX(), location.getY()+1);
         }
-        if (direction == 'a' && location.getX()>0) {
+        if (direction == 'w' && location.getX()>0) {
             location.setLocation(location.getX()-1, location.getY());
         }
-        if (direction == 'd' && location.getX()<BOARD_SIZE) {
+        if (direction == 's' && location.getX()<BOARD_SIZE) {
             location.setLocation(location.getX()+1, location.getY());
         }
 

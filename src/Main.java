@@ -29,8 +29,12 @@ public class Main {
         gameStart();
         gameLoop();
     }
-    //TODO cur bugs
-    // 1) gameLoop ends if player reaches any edge other than the left or top.
+    //FIXME cur bugs
+    // 1) if player goes to the bottom of the board they disapear, also happens on the far right wall
+    // 2) if player with wall player and wall swap places and player cannot continue
+
+    //TODO
+    // 1) finish curCell method to identify the cell the player is currently in and commence I/O
 
 
 
@@ -139,11 +143,20 @@ public class Main {
                 } else {
                     System.out.println("Input invalid\nPlease re-inter movement input: W, A, S, D. \n" +
                             "Press: I, to view backpack inventory. \n" + "Press: R, to print rules and instructions."
-                            +"Press: E to save and exit.");
+                            +"\nPress: E to save and exit.");
                     moveI = false;
                 }
+
+                //curCell(p1.getLocation().getX(),p1.getLocation().getY());
             }
         }
+    }
+
+    public static void curCell(int x, int y){
+
+        Cell cur = BL1.getCellAt(x,y);
+        //if(cur == Wall) //FIXME want to check if cur cell is a wall and what im doing isnt working
+
     }
 
     public static void saveAndExit(){

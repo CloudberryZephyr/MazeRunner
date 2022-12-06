@@ -62,8 +62,6 @@ public class Board {
                 boardView[i][j] = cells[i][j];
             }
         }
-
-
     }
 
     /**
@@ -91,7 +89,8 @@ public class Board {
                 } else {
                     System.out.print("* ");
                 }
-                if (j==BOARD_SIZE-1){
+                if (j==BOARD_SIZE-1){ //FIXME if player goes to the bottom of the board they disapear, also happens on the far right wall
+
                     System.out.print("|");
                 }
             }
@@ -110,6 +109,7 @@ public class Board {
      * @return Cell object at desired location in cells array
      */
     public Cell getCellAt(int x, int y) {
+
         return cells[x][y];
     }
 
@@ -145,4 +145,5 @@ public class Board {
     public void setCellAt(int x, int y, Cell cell){
         cells[x][y] = cell;
     }
+
 }

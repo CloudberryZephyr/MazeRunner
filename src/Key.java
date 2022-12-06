@@ -38,7 +38,7 @@ public class Key extends Cell{
 
     @Override
     public String toString() {
-        return "*";
+        return "k";
     }
 
 }

@@ -14,6 +14,7 @@ public class Board {
     private Player player;
     private Random rand;
     private ArrayList<Cell> traps;
+    private ArrayList<Monster> monsters;
 
 
     /**
@@ -25,9 +26,13 @@ public class Board {
     public Board(int difficulty, Player player, int boardSize) {
         this.difficulty = difficulty;
         this.player = player;
-        //BOARD_SIZE = difficulty + 9;  Possible changes to board size depending on game difficulty
         BOARD_SIZE = boardSize;
         rand = new Random();
+        monsters = new ArrayList<>();
+        for (int i = 0; i<difficulty; i++){
+            monsters.add(new Monster(boardSize-1, boardSize-1, 10));
+            monsters.add(new SmartMonster(boardSize-1, boardSize-1, 10, player));
+        }
 
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
@@ -57,6 +62,8 @@ public class Board {
                 boardView[i][j] = cells[i][j];
             }
         }
+
+
     }
 
     /**
@@ -116,4 +123,12 @@ public class Board {
     }
 
     public int getBOARD_SIZE(){return BOARD_SIZE;}
+
+    public ArrayList<Monster> getMonsters(){
+        return monsters;
+    }
+
+    public void setCellAt(int x, int y, Cell cell){
+        cells[x][y] = cell;
+    }
 }

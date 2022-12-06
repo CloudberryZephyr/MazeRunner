@@ -15,6 +15,6 @@ public class Empty extends Cell{
 
     @Override
     public String toString() {
-        return "*";
+        return ".";
     }
 }

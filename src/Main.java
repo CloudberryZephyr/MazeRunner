@@ -1,12 +1,13 @@
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Scanner;
-import java.util.Stack;
+import java.io.File;
+import java.io.PrintWriter;
+import java.util.*;
 
 public class Main {
     private Stack<Cell> playerPath;
+    private static String userName = "";
     static Scanner scan = new Scanner(System.in);
     private static Board BL1;
+    private static int difficulty;
     private static Player p1 = new Player(5);
 
 
@@ -41,30 +42,40 @@ public class Main {
      * prompts for username, determines game level, and creates new board and player
      */
     public static void gameStart() {
-        System.out.println("Please enter username:");
-        String userName = scan.nextLine();
+        System.out.println("Load last save? y/n ");
+        String loadSave = scan.nextLine();
+        if (loadSave.equals("n")) {
+            System.out.println("Please enter username:");
+            userName = scan.nextLine();
 
 
+            System.out.println("\nChoose your difficulty, integer: from 1-3");
+            boolean levelI = false;
 
-        System.out.println("\nChoose your difficulty, integer: from 1-3");
-        boolean levelI = false;
+            while (!levelI) {
+                String level = scan.next();
 
-        while (!levelI) {
-            String level = scan.next();
-
-            if (level.equals("1")) {
-                BL1 = new Board(1, p1, 5);
-                levelI = true;
-            } else if (level.equals("2")) {
-                BL1 = new Board(2, p1, 15);
-                levelI = true;
-            } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= problem
-                BL1 = new Board(3, p1, 20);
-                levelI = true;
-            } else {
-                levelI = false;
-                System.out.println("Input invalid, please enter an integer 1-3");
+                if (level.equals("1")) {
+                    difficulty = Integer.parseInt(level);
+                    BL1 = new Board(difficulty, p1, 5);
+                    levelI = true;
+                } else if (level.equals("2")) {
+                    difficulty = Integer.parseInt(level);
+                    BL1 = new Board(difficulty, p1, 15);
+                    levelI = true;
+                } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= problem
+                    difficulty = Integer.parseInt(level);
+                    BL1 = new Board(difficulty, p1, 20);
+                    levelI = true;
+                } else {
+                    levelI = false;
+                    System.out.println("Input invalid, please enter an integer 1-3");
+                }
             }
+        } else if (loadSave.equals("y")){
+            loadSave();
+        } else {
+            System.out.println("+---ERROR---+");
         }
     }
 
@@ -120,6 +131,11 @@ public class Main {
                 }
                 else if (moveChoice.equals("")) {
 
+                }
+                else if (moveChoice.equals("e")) {// prints backpack for player to see
+                    System.out.println("exiting...");
+                    saveAndExit();
+                    return;
                 } else {
                     System.out.println("Input invalid\nPlease re-inter movement input: W, A, S, D. \n" +
                             "Press: I, to view backpack inventory \n" + "Press: R, to print rules and instructions");
@@ -127,6 +143,113 @@ public class Main {
                 }
             }
         }
+    }
+
+    public static void saveAndExit(){
+        try {
+            PrintWriter saveWriter = new PrintWriter("lastSave.txt");
+            // write out general information
+            saveWriter.println(userName);
+            saveWriter.println(BL1.getBOARD_SIZE());
+            saveWriter.println(difficulty);
+            // write out player information
+            saveWriter.println(p1.getBackPack().size());
+            for (String item : p1.getBackPack()) {
+                saveWriter.println(item);
+            }
+            saveWriter.println(p1.getHealth());
+            saveWriter.println(p1.getMaxHealth());
+            saveWriter.println(p1.getLocation().getX() + " " + p1.getLocation().getY());
+            saveWriter.println(p1.getPath().size());
+            for (Location loc : p1.getPath()) {
+                saveWriter.println(loc.getX() + " " + loc.getY());
+            }
+            // write out board information
+            for (int i = 0; i < BL1.getBOARD_SIZE(); i++){
+                for ( int j = 0; j < BL1.getBOARD_SIZE(); j++){
+                    saveWriter.println(BL1.getCellAt(i,j).toString());
+                }
+            }
+            // write out monster information
+            for (Monster m : BL1.getMonsters()) {
+                if (m instanceof SmartMonster){
+                    saveWriter.println("Smart " + ((SmartMonster) m).location.getX() + " " + ((SmartMonster) m).location.getY() + " " + ((SmartMonster) m).getHealth());
+                } else {
+                    saveWriter.println("Dumb " + m.location.getX() + " " + m.location.getY() + " " + m.getHealth());
+                }
+            }
+            saveWriter.close();
+
+        } catch (Exception e) {
+            System.out.println("+---ERROR---+");
+        }
+
+
+    }
+
+    public static void loadSave(){
+        try {
+            File lastSave = new File("lastSave.txt");
+            Scanner saveSc = new Scanner(lastSave);
+            // read general information
+            userName = saveSc.nextLine();
+            int boardSize = saveSc.nextInt();
+            difficulty = saveSc.nextInt();
+            // read player information and create player
+            p1 = new Player(boardSize);
+            Set<String> backpack = new HashSet<>();
+            int backpackSize = saveSc.nextInt();
+            while (p1.getBackPack().size()<backpackSize) {
+                p1.addToBackpack(saveSc.next());
+            }
+            int health = saveSc.nextInt();
+            int maxHealth = saveSc.nextInt();
+            p1.loseHealth(maxHealth-health);
+            p1.setLocation(new Location(saveSc.nextInt(), saveSc.nextInt()));
+            int counter = 0;
+            int locNum = saveSc.nextInt();
+            while (counter < locNum) {
+                p1.getPath().add(new Location(saveSc.nextInt(), saveSc.nextInt()));
+                counter++;
+            }
+            // write out board information
+            BL1 = new Board(difficulty, p1, boardSize);
+            for (int i = 0; i < BL1.getBOARD_SIZE(); i++){
+                for ( int j = 0; j < BL1.getBOARD_SIZE(); j++){
+                    String temp = saveSc.next();
+                    if (temp.equals(".")) {
+                        BL1.setCellAt(i, j, new Empty(p1));
+                    } else if (temp.equals("#")) {
+                        BL1.setCellAt(i, j, new Entrance(p1));
+                    } else if (temp.equals("@")) {
+                        BL1.setCellAt(i, j, new Exit(p1));
+                    } else if (temp.equals("+")) {
+                        BL1.setCellAt(i, j, new Healing_Trap(p1));
+                    } else if (temp.equals("k")) {
+                        BL1.setCellAt(i, j, new Key(p1.hasKey(), p1));
+                    } else if (temp.equals("W")) {
+                        BL1.setCellAt(i, j, new Wall());
+                    }
+                }
+            }
+            // write out monster information
+            ArrayList<Monster> monsters = BL1.getMonsters();
+            while (saveSc.hasNext()) {
+                String type = saveSc.next();
+                if (type.equals("Smart")) {
+                    monsters.add(new SmartMonster(saveSc.nextInt(), saveSc.nextInt(), saveSc.nextInt(), p1));
+                } else if (type.equals("Dumb")){
+                    monsters.add(new Monster(saveSc.nextInt(), saveSc.nextInt(), saveSc.nextInt()));
+                }
+            }
+
+            saveSc.close();
+
+        } catch (Exception e) {
+            System.out.println("+---ERROR---+");
+        }
+
+
     }
 }
 

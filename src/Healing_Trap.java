@@ -15,7 +15,7 @@ public class Healing_Trap extends Trap{
 
     @Override
     public String toString(){
-       return "*";
+       return "+";
     }
 
 }

@@ -138,4 +138,16 @@ public class Player {
         }
         return false;
     }
+
+    public void addToBackpack(String thing){
+        backPack.add(thing);
+    }
+
+    public void setLocation(Location loc){
+        location = loc;
+    }
+
+    public void setPath(LinkedList<Location> path) {
+        this.path = path;
+    }
 }

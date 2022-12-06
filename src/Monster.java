@@ -9,18 +9,15 @@ public class Monster {
     protected Location location;
     private Random rand;
 
-    protected Board level;
-
     /**
      * Constructor method that creates a monster object in a location corresponding to given x and y values
      * @param x int value for the monster's starting column
      * @param y int value for the monster's starting row
      */
-    public Monster(int x, int y, Board level) {
-        health = 10;   // initializing monster's health to 10, we'll see if this is practical
+    public Monster(int x, int y, int health) {
+        this.health = health;   // initializing monster's health to 10, we'll see if this is practical
         location = new Location(x, y);
         rand = new Random();
-        this.level = level;
     }
 
     /**
@@ -37,5 +34,9 @@ public class Monster {
          } else if (direction == 3){
              location.setLocation(location.getX()+1, location.getY());
          }
+    }
+
+    public int getHealth(){
+        return health;
     }
 }

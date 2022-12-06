@@ -80,7 +80,7 @@ public class Main {
 
     public static void gameLoop() {
         int size = BL1.getBOARD_SIZE();
-        System.out.println(" \n>>");
+        System.out.println(">>");
 
         while ((!p1.hasKey()) && (p1.getLocation().getX() != size - 1) && (p1.getLocation().getY() != size - 1)) {
             boolean moveI = false;

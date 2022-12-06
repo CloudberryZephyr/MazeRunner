@@ -8,8 +8,7 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
     private static Board BL1;
     private static Player p1 = new Player(5);
-    private static Player p2 = new Player(15);
-    private static Player p3 = new Player(20);
+
 
 
     public static void main(String[] args) {
@@ -31,9 +30,6 @@ public class Main {
     }
     //TODO cur bugs
     // 1) board view gives error if it tries to go outside the arrayList index
-    // 2) printBoard is returning memory addresses.
-    // 3) there may be no exit cell.
-    // 4) first itteration of loop returns "invalid input"
 
 
 
@@ -60,10 +56,10 @@ public class Main {
                 BL1 = new Board(1, p1, 5);
                 levelI = true;
             } else if (level.equals("2")) {
-                BL1 = new Board(2, p2, 15);
+                BL1 = new Board(2, p1, 15);
                 levelI = true;
             } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= problem
-                BL1 = new Board(3, p3, 20);
+                BL1 = new Board(3, p1, 20);
                 levelI = true;
             } else {
                 levelI = false;

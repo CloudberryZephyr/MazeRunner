@@ -73,8 +73,15 @@ public class Board {
         int playerX = player.getLocation().getX();
         int playerY = player.getLocation().getY();
 
+        for (int i = 0; i< BOARD_SIZE; i++) {
+            System.out.print("--");
+        }
+        System.out.println();
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++){
+                if(j==0){
+                    System.out.print("|");
+                }
                 if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
@@ -84,9 +91,16 @@ public class Board {
                 } else {
                     System.out.print("* ");
                 }
+                if (j==BOARD_SIZE-1){
+                    System.out.print("|");
+                }
             }
             System.out.println();
         }
+        for (int i = 0; i< BOARD_SIZE; i++) {
+            System.out.print("--");
+        }
+        System.out.println();
     }
 
     /**

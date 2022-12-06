@@ -30,7 +30,7 @@ public class Main {
         gameLoop();
     }
     //TODO cur bugs
-    // 1) board view gives error if it tries to go outside the arrayList index
+    // 1) gameLoop ends if player reaches any edge other than the left or top.
 
 
 
@@ -63,7 +63,7 @@ public class Main {
                     difficulty = Integer.parseInt(level);
                     BL1 = new Board(difficulty, p1, 15);
                     levelI = true;
-                } else if (level.equals("3")) { //FIXME wierd error at level = 3 could be >= problem
+                } else if (level.equals("3")) {
                     difficulty = Integer.parseInt(level);
                     BL1 = new Board(difficulty, p1, 20);
                     levelI = true;
@@ -89,7 +89,7 @@ public class Main {
         int size = BL1.getBOARD_SIZE();
         System.out.println(">>");
 
-        while ((!p1.hasKey()) && (p1.getLocation().getX() != size - 1) && (p1.getLocation().getY() != size - 1)) {
+        while (!((p1.hasKey()) && ((p1.getLocation().getX() == size - 1) && (p1.getLocation().getY() == size - 1)))) {
             boolean moveI = false;
 
             while (!moveI) {
@@ -138,7 +138,8 @@ public class Main {
                     return;
                 } else {
                     System.out.println("Input invalid\nPlease re-inter movement input: W, A, S, D. \n" +
-                            "Press: I, to view backpack inventory \n" + "Press: R, to print rules and instructions");
+                            "Press: I, to view backpack inventory. \n" + "Press: R, to print rules and instructions."
+                            +"Press: E to save and exit.");
                     moveI = false;
                 }
             }

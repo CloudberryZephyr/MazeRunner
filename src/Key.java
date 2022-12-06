@@ -11,12 +11,6 @@ public class Key extends Cell{
         this.keyFound = found;
     }
 
-//    public void found(boolean found){
-//        if (found){
-//            keyFound = true;
-//        }
-//    }
-
     public void interAction(){
         Scanner scan = new Scanner(System.in);
         System.out.println("You have entered the key room, there is a golden key hanging from a string from the ceiling");

@@ -36,7 +36,6 @@ public class Player {
     public void move(char direction){
         // changes the player's location according to the given direction
         if (direction == 'a' && location.getY()>0) {
-            System.out.println("You found a wall, rerouting is needed");
             location.setLocation(location.getX(), location.getY()-1);
         }
         if (direction == 'd' && location.getY()<BOARD_SIZE) {

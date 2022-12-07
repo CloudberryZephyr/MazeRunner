@@ -37,11 +37,10 @@ public class Board {
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
 
-        // currently initializes the base board in a default setting - no traps
+        // initializes the board
         int keyRow = rand.nextInt(1, BOARD_SIZE);
         int keyCol = rand.nextInt(1, BOARD_SIZE);
         initializeTraps(difficulty);
-        Cell hold = traps.get(1);
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++) {
                 if (i==0 && j==0){
@@ -50,10 +49,10 @@ public class Board {
                     cells[i][j] = new Exit(player);
                 } else if (i==keyRow && j == keyCol) {
                     cells[i][j] = new Key(player.hasKey(), player);
-                 //}else if(hold == traps.get(1) && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
+                 }else if(hold == traps.get(1) && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
                     //TODO test to make sure wall dont print back to back
                     //FIXME fun fact, this really messes up level 2&3
-                    //cells[i][j] = new Empty(player);
+                    cells[i][j] = new Empty(player);
                 } else {
                     cells[i][j] = traps.get(rand.nextInt(0,traps.size()));
                     hold = cells[i][j];
@@ -88,8 +87,7 @@ public class Board {
                 }
                 if (thisLoc.testForMonsters(monsters)){
                     System.out.println("  ");
-                }
-                if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
+                } else if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");

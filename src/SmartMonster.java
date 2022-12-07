@@ -29,7 +29,7 @@ public class SmartMonster extends Monster{
             }
             location = player.getPath().get(placeInPlayerPath+1);
         } else {
-            move(boardSize);
+            super.move(boardSize);
         }
     }
 }

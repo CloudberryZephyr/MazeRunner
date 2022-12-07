@@ -50,9 +50,7 @@ public class Board {
                     cells[i][j] = new Exit(player);
                 } else if (i==keyRow && j == keyCol) {
                     cells[i][j] = new Key(player.hasKey(), player);
-                 }else if(hold == traps.get(1) && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
-                    //TODO test to make sure wall dont print back to back
-                    //FIXME fun fact, this really messes up level 2&3
+                 }else if(cells[i][j] == traps.get(1) && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
                     cells[i][j] = new Empty(player);
                 } else {
                     cells[i][j] = traps.get(rand.nextInt(0,traps.size()));
@@ -73,6 +71,13 @@ public class Board {
      * prints the boardView array in a visual console format
      */
     public void printBoard(Player player) {
+        for(Monster m : monsters){
+            if (m instanceof SmartMonster){
+                ((SmartMonster) m).move();
+            } else {
+                m.move();
+            }
+        }
         int playerX = player.getLocation().getX();
         int playerY = player.getLocation().getY();
 
@@ -86,15 +91,16 @@ public class Board {
                 if(j==0){
                     System.out.print("|");
                 }
-                if (thisLoc.testForMonsters(monsters)){
-                    System.out.println("  ");
-                }
                 if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");
                 } else if (player.doesPathContain(new Location(i,j))) {
-                    System.out.print(cells[i][j].toString() + " ");
+                    if (thisLoc.testForMonsters(monsters)){
+                        System.out.println("  ");
+                    } else {
+                        System.out.print(cells[i][j].toString() + " ");
+                    }
                 } else {
                     System.out.print("* ");
                 }

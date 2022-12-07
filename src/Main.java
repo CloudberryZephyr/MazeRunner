@@ -30,7 +30,6 @@ public class Main {
         gameLoop();
     }
     //FIXME current bugs
-    // 1) if player goes to the bottom of the board they disapear, also happens on the far right wall, can backtrack but disappear at edge
     // 2) if player with wall player and wall swap places and player cannot continue
     // 3) walls have a possibility to block players ability to reach exit or key. Basically walls can be placed in such a way that they are impassable.
     // i took a stab at it in board anddddd it doesn't work lol
@@ -104,23 +103,19 @@ public class Main {
 
 
                 if (moveChoice.equals("w")) {
-                    p1.move('w');
-                    BL1.printBoard(p1);
+                    moveIfNoWall(moveChoice);
                     moveI = true;
 
                 } else if (moveChoice.equals("s")) {
-                    p1.move('s');
-                    BL1.printBoard(p1);
+                    moveIfNoWall(moveChoice);
                     moveI = true;
 
                 } else if (moveChoice.equals("a")) {
-                    p1.move('a');
-                    BL1.printBoard(p1);
+                    moveIfNoWall(moveChoice);
                     moveI = true;
 
                 } else if (moveChoice.equals("d")) {
-                    p1.move('d');
-                    BL1.printBoard(p1);
+                    moveIfNoWall(moveChoice);
                     moveI = true;
                 }
                 else if (moveChoice.equals("r")) {
@@ -270,6 +265,27 @@ public class Main {
 
         } catch (Exception e) {
             System.out.println("+---ERROR---+");
+        }
+    }
+
+    public static void moveIfNoWall(String direction){
+        if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
+            return;
+        } else if (direction.equals("w")) {
+            p1.move('w');
+            BL1.printBoard(p1);
+
+        } else if (direction.equals("s")) {
+            p1.move('s');
+            BL1.printBoard(p1);
+
+        } else if (direction.equals("a")) {
+            p1.move('a');
+            BL1.printBoard(p1);
+
+        } else if (direction.equals("d")) {
+            p1.move('d');
+            BL1.printBoard(p1);
         }
     }
 }

@@ -41,7 +41,7 @@ public class Board {
         int keyRow = rand.nextInt(1, BOARD_SIZE);
         int keyCol = rand.nextInt(1, BOARD_SIZE);
         initializeTraps(difficulty);
-        Cell hold = new Empty(player);
+        Cell previous = new Empty(player);
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++) {
                 if (i==0 && j==0){
@@ -50,12 +50,12 @@ public class Board {
                     cells[i][j] = new Exit(player);
                 } else if (i==keyRow && j == keyCol) {
                     cells[i][j] = new Key(player.hasKey(), player);
-                 }else if(cells[i][j] == traps.get(1) && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
+                 }else if(previous instanceof Wall){
                     cells[i][j] = new Empty(player);
                 } else {
                     cells[i][j] = traps.get(rand.nextInt(0,traps.size()));
-                    hold = cells[i][j];
                 }
+                previous = cells[i][j];
             }
         }
 

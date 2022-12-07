@@ -1,9 +1,12 @@
 import javax.security.auth.callback.ConfirmationCallback;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Key extends Cell{
     private Player player;
     private boolean keyFound;
+    private int playerCurX = player.getLocation().getX();
+    private int playerCurY = player.getLocation().getY();
 
 
     public Key(boolean found, Player p1){
@@ -14,7 +17,17 @@ public class Key extends Cell{
     public void interAction(){
         Scanner scan = new Scanner(System.in);
         System.out.println("You have entered the key room, there is a golden key hanging from a string from the ceiling");
+        System.out.println("would you like to use an item?");
+        String itemYN = scan.nextLine().toLowerCase(Locale.ROOT);
+        if(itemYN.equals("y")){
+            System.out.println("which item would you like to use?");
+            System.out.println(player.getBackPack());
+            int itemCH = scan.nextInt();
+
+        }
+
         System.out.println("Press 'C' to cut the string \n Press 'P' to pull the string down \n press 'I' to ignore an obvios trap");
+
         char pick =  scan.next().toUpperCase().charAt(0);
 
         if(pick == 'C'){

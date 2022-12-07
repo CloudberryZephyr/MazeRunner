@@ -37,10 +37,11 @@ public class Board {
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
 
-        // initializes the board
+        // currently initializes the base board in a default setting - no traps
         int keyRow = rand.nextInt(1, BOARD_SIZE);
         int keyCol = rand.nextInt(1, BOARD_SIZE);
         initializeTraps(difficulty);
+        Cell hold = new Empty(player);
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++) {
                 if (i==0 && j==0){
@@ -87,7 +88,8 @@ public class Board {
                 }
                 if (thisLoc.testForMonsters(monsters)){
                     System.out.println("  ");
-                } else if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
+                }
+                if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");

@@ -30,10 +30,6 @@ public class Main {
 
         gameLoop();
     }
-    //FIXME current bugs
-    // 3) walls have a possibility to block players ability to reach exit or key. Basically walls can be placed in such a way that they are impassable.
-    // i took a stab at it in board anddddd it doesn't work lol
-
 
     //TODO
     // 1) finish curCell method to identify the cell the player is currently in and commence I/O: Main

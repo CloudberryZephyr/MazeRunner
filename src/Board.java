@@ -84,15 +84,16 @@ public class Board {
                 if(j==0){
                     System.out.print("|");
                 }
-                if (thisLoc.testForMonsters(monsters)){
-                    System.out.print("  ");
-                }
                 if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");
                 } else if (player.doesPathContain(new Location(i,j))) {
-                    System.out.print(cells[i][j].toString() + " ");
+                    if (thisLoc.testForMonsters(monsters)){
+                        System.out.print("  ");
+                    } else {
+                        System.out.print(cells[i][j].toString() + " ");
+                    }
                 } else {
                     System.out.print("* ");
                 }
@@ -130,13 +131,11 @@ public class Board {
             traps.add(new Wall()); // don't change this wall location -> max
             traps.add(new Empty(player));
             traps.add(new BackPack_Refil());
-            //traps.add(new Healing_Trap(player));
-
+            traps.add(new Healing_Trap(player));
         } else if (difficulty==2) {
             traps.add(new Wall());
             traps.add(new Empty(player));
-
-            //traps.add(new Healing_Trap(player));
+            traps.add(new Healing_Trap(player));
         } else if (difficulty==1){
             traps.add(new Wall());
             traps.add(new Empty(player));

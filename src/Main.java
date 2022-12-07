@@ -158,6 +158,14 @@ public class Main {
                     hasWon = true;
                 }
 
+                for (Monster m : BL1.getMonsters()) {
+                    if (m instanceof SmartMonster) {
+                        ((SmartMonster) m).move(BL1.getBOARD_SIZE());
+                    } else {
+                        m.move(BL1.getBOARD_SIZE());
+                    }
+                }
+
             }
         }
     }

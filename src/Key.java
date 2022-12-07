@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Key extends Cell{
     private Player player;
     private boolean keyFound;
+
 //    private int playerCurX = player.getLocation().getX();
 //    private int playerCurY = player.getLocation().getY();
 
@@ -24,8 +25,9 @@ public class Key extends Cell{
         if(pick == 'C'){
             System.out.println("Good choice you found the key, please proceed to the nearest exit");
 
+            Key_Item k1 = new Key_Item(player,0,0);
+            player.getBackPack().add(k1.getName());
 
-            player.getBackPack().add("Key");
         } else if(pick == 'P'){
             System.out.println("Why would you pull it??? You just pulled the release for a giant hidden hammer");
             player.loseHealth(10,"k");

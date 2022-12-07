@@ -16,6 +16,7 @@ public class Player {
     private Location location;
     private final int BOARD_SIZE;
     private LinkedList<Location> path;
+    private boolean alive = true;
 
 
     /**
@@ -67,17 +68,9 @@ public class Player {
         if(type.equals("K")){
             if(kineticHealth > amt) {
                 kineticHealth = kineticHealth - amt;
-            } else if(kineticHealth>0 && kineticHealth < amt) {
-                int minus = kineticHealth - amt;
-                if (minus < fallHealth) {
-                    fallHealth = fallHealth - minus;
-                } else {
+            } else if(kineticHealth < amt) {
                     System.out.println("you died");
-                }
             }
-
-
-            //}
         }
 
         if(type.equals("f")){
@@ -88,15 +81,26 @@ public class Player {
                 if(minus < kineticHealth) {
                     kineticHealth = kineticHealth - minus;
                 } else {
-                    System.out.println("you died");
+                    System.out.println("You Died, your kinetic health ran out.");
+                    alive = false;
                 }
             } else if(fallHealth == 0 && kineticHealth > amt){
                 kineticHealth = kineticHealth - amt;
             } else if(fallHealth ==0 && kineticHealth < amt){
                 System.out.println("You died, your fall health and or kinetic health have ran out");
+                alive = false;
             }
         }
-        health -= amt;
+
+        if(type.equals("g")){
+            if(generalHealth > amt) {
+                generalHealth = generalHealth - amt;
+            }
+            if(generalHealth < amt){
+                System.out.println("You Died, your life force threw in the towel");
+                alive = false;
+            }
+        }
     }
 
     /**

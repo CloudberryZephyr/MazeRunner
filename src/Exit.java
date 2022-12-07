@@ -1,5 +1,6 @@
 import java.util.Locale;
 import java.util.Scanner;
+import java.util.Timer;
 
 public class Exit extends Cell{
     private Player p1;
@@ -23,7 +24,7 @@ public class Exit extends Cell{
         String pc = scan.next().toLowerCase(Locale.ROOT);
         if(pc.equals("t")){
             System.out.println("Good Game, Maze Runner");
-            System.out.println("your total time was: ");
+            System.out.println("your total time was: " + Stopwatch.getElapsedTimeSecs());
         }
         return hasKey;
     }

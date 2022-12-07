@@ -75,7 +75,6 @@ public class Player {
                     System.out.println("you died");
                 }
             }
-            //else if() {
 
 
             //}
@@ -94,7 +93,7 @@ public class Player {
             } else if(fallHealth == 0 && kineticHealth > amt){
                 kineticHealth = kineticHealth - amt;
             } else if(fallHealth ==0 && kineticHealth < amt){
-                System.out.println("You died, your fall health and kinetic health have ran out");
+                System.out.println("You died, your fall health and or kinetic health have ran out");
             }
         }
         health -= amt;

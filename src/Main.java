@@ -9,6 +9,7 @@ public class Main {
     private static Board BL1;
     private static int difficulty;
     private static Player p1;
+    protected static boolean exit = true;
 
 
 
@@ -27,8 +28,10 @@ public class Main {
 //                "the key upon reaching the exit you will not be able to exit the maze\n" +
 //                "Good Luck Maze Runner, and by the way, lookout for the roaming monster\n\n");
         gameStart();
+        Stopwatch.start();
 
         gameLoop();
+        Stopwatch.stop();
     }
     //FIXME current bugs
     // 2) p;ayer and wall swap places
@@ -94,10 +97,11 @@ public class Main {
      * until they have found the key and have entered the exit cell. Includes all in-game player I\O.
      */
     public static void gameLoop() {
+
         int size = BL1.getBOARD_SIZE();
         System.out.println(">>");
 
-        while (!((p1.hasKey()) && ((p1.getLocation().getX() == size - 1) && (p1.getLocation().getY() == size - 1)))) {
+        while (!((p1.hasKey()) && exit && ((p1.getLocation().getX() == size - 1) && (p1.getLocation().getY() == size - 1)))) {
             boolean moveI = false;
 
             while (!moveI) {
@@ -158,9 +162,11 @@ public class Main {
         Cell cur = BL1.getCellAt(x,y);
         if(cur instanceof Wall) {
             System.out.println("you hit a wall");
-        } if(cur instanceof Key){
+        } else if(cur instanceof Key){
             ((Key) cur).interAction();
-        } if(cur instanceof Exit){
+        } else if(cur instanceof Exit){
+            ((Exit) cur).endGameTest();
+            exit = true;
 
         }
     }

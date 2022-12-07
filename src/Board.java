@@ -71,13 +71,6 @@ public class Board {
      * prints the boardView array in a visual console format
      */
     public void printBoard(Player player) {
-        for(Monster m : monsters){
-            if (m instanceof SmartMonster){
-                ((SmartMonster) m).move();
-            } else {
-                m.move();
-            }
-        }
         int playerX = player.getLocation().getX();
         int playerY = player.getLocation().getY();
 
@@ -91,16 +84,15 @@ public class Board {
                 if(j==0){
                     System.out.print("|");
                 }
+                if (thisLoc.testForMonsters(monsters)){
+                    System.out.println("  ");
+                }
                 if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");
                 } else if (player.doesPathContain(new Location(i,j))) {
-                    if (thisLoc.testForMonsters(monsters)){
-                        System.out.println("  ");
-                    } else {
-                        System.out.print(cells[i][j].toString() + " ");
-                    }
+                    System.out.print(cells[i][j].toString() + " ");
                 } else {
                     System.out.print("* ");
                 }

@@ -27,10 +27,11 @@ public class Main {
 //                "the key upon reaching the exit you will not be able to exit the maze\n" +
 //                "Good Luck Maze Runner, and by the way, lookout for the roaming monster\n\n");
         gameStart();
+
         gameLoop();
     }
     //FIXME current bugs
-    // 2) if player with wall player and wall swap places and player cannot continue
+    // 2) p;ayer and wall swap places
     // 3) walls have a possibility to block players ability to reach exit or key. Basically walls can be placed in such a way that they are impassable.
     // i took a stab at it in board anddddd it doesn't work lol
 
@@ -85,6 +86,7 @@ public class Main {
             System.out.println("+---ERROR---+");
         }
     }
+
 
 
     /**
@@ -148,18 +150,19 @@ public class Main {
                     moveI = false;
                 }
 
-                //curCell(p1.getLocation().getX(),p1.getLocation().getY());
+                curCell(p1.getLocation().getX(),p1.getLocation().getY());
             }
         }
     }
 
     public static void curCell(int x, int y){
-
         Cell cur = BL1.getCellAt(x,y);
         if(cur instanceof Wall) {
             System.out.println("you hit a wall");
         } if(cur instanceof Key){
             ((Key) cur).interAction();
+        } if(cur instanceof Exit){
+
         }
     }
 

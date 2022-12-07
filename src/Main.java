@@ -275,6 +275,7 @@ public class Main {
             p1.move('w');
             if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
                 p1.move('s');
+                System.out.println("you hit a wall");
             }
             BL1.printBoard(p1);
 
@@ -282,6 +283,8 @@ public class Main {
             p1.move('s');
             if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
                 p1.move('w');
+                System.out.println("you hit a wall");
+
             }
             BL1.printBoard(p1);
 
@@ -289,6 +292,8 @@ public class Main {
             p1.move('a');
             if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
                 p1.move('d');
+                System.out.println("you hit a wall");
+
             }
             BL1.printBoard(p1);
 
@@ -296,6 +301,8 @@ public class Main {
             p1.move('d');
             if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
                 p1.move('a');
+                System.out.println("you hit a wall");
+
             }
             BL1.printBoard(p1);
         }

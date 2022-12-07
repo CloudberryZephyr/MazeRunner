@@ -29,18 +29,17 @@ public class Main {
         gameStart();
         gameLoop();
     }
-    //FIXME cur bugs
+    //FIXME current bugs
     // 1) if player goes to the bottom of the board they disapear, also happens on the far right wall, can backtrack but disappear at edge
     // 2) if player with wall player and wall swap places and player cannot continue
+    // 3) walls have a possibility to block players ability to reach exit or key. Basically walls can be placed in such a way that they are impassable.
+    // i took a stab at it in board anddddd it doesn't work lol
+
 
     //TODO
     // 1) finish curCell method to identify the cell the player is currently in and commence I/O
     // 2) make item and trap talk to each other
     // 3) finish lose health in player need to add if stmt's to determine type of damage based on string input
-
-
-
-
 
 
 

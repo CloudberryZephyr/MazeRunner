@@ -42,7 +42,7 @@ public class Player {
     private Location location;
     private final int BOARD_SIZE;
     private LinkedList<Location> path;
-    private boolean alive = true;
+    protected boolean isAlive = true;
 
 
     /**
@@ -108,13 +108,13 @@ public class Player {
                     kineticHealth = kineticHealth - minus;
                 } else {
                     System.out.println("You Died, your kinetic health ran out.");
-                    alive = false;
+                    isAlive = false;
                 }
             } else if(fallHealth == 0 && kineticHealth > amt){
                 kineticHealth = kineticHealth - amt;
             } else if(fallHealth ==0 && kineticHealth < amt){
                 System.out.println("You died, your fall health and or kinetic health have ran out");
-                alive = false;
+                isAlive = false;
             }
         }
 
@@ -124,7 +124,7 @@ public class Player {
             }
             if(generalHealth < amt){
                 System.out.println("You Died, your life force threw in the towel");
-                alive = false;
+                isAlive = false;
             }
         }
     }

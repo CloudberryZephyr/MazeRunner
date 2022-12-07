@@ -88,12 +88,10 @@ public class Board {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");
+                } else if (thisLoc.testForMonsters(monsters)){
+                    System.out.print("  ");
                 } else if (player.doesPathContain(new Location(i,j))) {
-                    if (thisLoc.testForMonsters(monsters)){
-                        System.out.print("  ");
-                    } else {
-                        System.out.print(cells[i][j].toString() + " ");
-                    }
+                    System.out.print(cells[i][j].toString() + " ");
                 } else {
                     System.out.print("* ");
                 }

@@ -19,7 +19,7 @@ public class SmartMonster extends Monster{
      * This method is a basic AI process that controls the smartMonster's tracking behavior and movement
      */
     @Override
-    public void move(){
+    public void move(int boardSize){
         if (player.doesPathContain( new Location(location.getX(), location.getY()))){
             int placeInPlayerPath=0;
             for(Location loc : player.getPath()) {
@@ -29,7 +29,7 @@ public class SmartMonster extends Monster{
             }
             location = player.getPath().get(placeInPlayerPath+1);
         } else {
-            move();
+            move(boardSize);
         }
     }
 }

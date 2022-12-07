@@ -152,7 +152,7 @@ public class Main {
 
                 if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Exit) {
                     if(((Exit) BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY())).endGameTest()){
-                        return;
+                        hasWon = true;
                     }
                 }
 

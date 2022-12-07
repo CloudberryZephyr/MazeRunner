@@ -132,7 +132,7 @@ public class Player {
      * @return boolean value - true if the key has been picked up, false if it has not
      */
     public boolean hasKey(){
-        return backPack.contains("key");
+        return backPack.contains("Key");
     }
 
     /**

@@ -150,7 +150,6 @@ public class Main {
                     moveI = false;
                 }
 
-                curCell(p1.getLocation().getX(),p1.getLocation().getY());
             }
         }
     }
@@ -272,24 +271,35 @@ public class Main {
     }
 
     public static void moveIfNoWall(String direction){
-        if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
-            return;
-        } else if (direction.equals("w")) {
+        if (direction.equals("w")) {
             p1.move('w');
+            if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
+                p1.move('s');
+            }
             BL1.printBoard(p1);
 
         } else if (direction.equals("s")) {
             p1.move('s');
+            if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
+                p1.move('w');
+            }
             BL1.printBoard(p1);
 
         } else if (direction.equals("a")) {
             p1.move('a');
+            if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
+                p1.move('d');
+            }
             BL1.printBoard(p1);
 
         } else if (direction.equals("d")) {
             p1.move('d');
+            if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Wall) {
+                p1.move('a');
+            }
             BL1.printBoard(p1);
         }
+        curCell(p1.getLocation().getX(),p1.getLocation().getY());
     }
 }
 

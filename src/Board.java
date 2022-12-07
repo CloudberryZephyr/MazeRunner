@@ -85,7 +85,7 @@ public class Board {
                     System.out.print("|");
                 }
                 if (thisLoc.testForMonsters(monsters)){
-                    System.out.println("  ");
+                    System.out.print("  ");
                 }
                 if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");

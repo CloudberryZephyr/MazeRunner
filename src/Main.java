@@ -161,7 +161,9 @@ public class Main {
     public static void curCell(int x, int y){
 
         Cell cur = BL1.getCellAt(x,y);
-        //if(cur == Wall) //FIXME want to check if cur cell is a wall and what im doing isnt working
+        if(cur instanceof Wall) {
+            //FIXME want to check if cur cell is a wall and what im doing isnt working
+        }
 
     }
 
@@ -224,7 +226,7 @@ public class Main {
             }
             int health = saveSc.nextInt();
             int maxHealth = saveSc.nextInt();
-            //p1.loseHealth(maxHealth-health);      // un comment when lose health is done
+            p1.loseHealth(maxHealth-health, );
             p1.setLocation(new Location(saveSc.nextInt(), saveSc.nextInt()));
             int counter = 0;
             int locNum = saveSc.nextInt();

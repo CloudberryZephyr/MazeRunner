@@ -37,7 +37,7 @@ public class Main {
     //TODO
     // 1) finish curCell method to identify the cell the player is currently in and commence I/O: Main
     // 2) make item and trap talk to each other
-    // 3) finish lose health in player need to add if stmt's to determine type of damage based on string input
+    // 3) walls could trap player
 
 
 
@@ -162,14 +162,8 @@ public class Main {
 
     public static void curCell(int x, int y){
         Cell cur = BL1.getCellAt(x,y);
-        if(cur instanceof Wall) {
-            System.out.println("you hit a wall");
-        } else if(cur instanceof Key){
+        if(cur instanceof Key){
             ((Key) cur).interAction();
-        } else if(cur instanceof Exit){
-            ((Exit) cur).endGameTest();
-            exit = true;
-
         }
     }
 

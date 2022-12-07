@@ -27,8 +27,9 @@ public class Key extends Cell{
 
             player.getBackPack().add("Key");
         } else if(pick == 'P'){
-            System.out.println("Why would you pull it??? You just pulled the roof down on your head");
-            player.loseHealth(5,"k");
+            System.out.println("Why would you pull it??? You just pulled the release for a giant hidden hammer");
+            player.loseHealth(10,"k");
+
 
         }else if (pick == 'I'){
             System.out.println("Was that the right choice? you'll find out later...");

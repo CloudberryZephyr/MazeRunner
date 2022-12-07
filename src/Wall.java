@@ -1,6 +1,6 @@
 public class Wall extends Cell{
-    @Override
+    //doesn't need extra code
     public String toString(){
-        return "W";
+        return "X";
     }
 }

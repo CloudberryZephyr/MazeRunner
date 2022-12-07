@@ -63,7 +63,41 @@ public class Player {
      * Method for losing a given amount of health
      * @param amt int amount of health to lose
      */
-    public void loseHealth(int amt, String type){
+    public void loseHealth(int amt, String type){ // this is getting very complicated and may be better to do one damage type
+        if(type.equals("K")){
+            if(kineticHealth > amt) {
+                kineticHealth = kineticHealth - amt;
+            } else if(kineticHealth>0 && kineticHealth < amt) {
+                int minus = kineticHealth - amt;
+                if (minus < fallHealth) {
+                    fallHealth = fallHealth - minus;
+                } else {
+                    System.out.println("you died");
+                }
+            }
+            else if() {
+
+
+            }
+        }
+
+
+        if(type.equals("f")){
+            if(fallHealth > amt) {
+                fallHealth = fallHealth - amt;
+            } else if(fallHealth > 0 && fallHealth < amt){
+                int minus = fallHealth-amt;
+                if(minus < kineticHealth) {
+                    kineticHealth = kineticHealth - minus;
+                } else {
+                    System.out.println("you died");
+                }
+            } else if(fallHealth == 0 && kineticHealth > amt){
+                kineticHealth = kineticHealth - amt;
+            } else if(fallHealth ==0 && kineticHealth < amt){
+                System.out.println("You died, your fall health and kinetic health have ran out");
+            }
+        }
         health -= amt;
     }
 

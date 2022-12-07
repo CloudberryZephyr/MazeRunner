@@ -8,7 +8,7 @@ public class Main {
     static Scanner scan = new Scanner(System.in);
     private static Board BL1;
     private static int difficulty;
-    private static Player p1 = new Player(5);
+    private static Player p1;
 
 
 
@@ -62,14 +62,17 @@ public class Main {
 
                 if (level.equals("1")) {
                     difficulty = Integer.parseInt(level);
+                    p1 = new Player(5);
                     BL1 = new Board(difficulty, p1, 5);
                     levelI = true;
                 } else if (level.equals("2")) {
                     difficulty = Integer.parseInt(level);
+                    p1 = new Player(15);
                     BL1 = new Board(difficulty, p1, 15);
                     levelI = true;
                 } else if (level.equals("3")) {
                     difficulty = Integer.parseInt(level);
+                    p1 = new Player(20);
                     BL1 = new Board(difficulty, p1, 20);
                     levelI = true;
                 } else {
@@ -137,9 +140,9 @@ public class Main {
 
                 }
                 else if (moveChoice.equals("l")) {
-                    System.out.println("#: Entrance \nW: Wall. \nP: Pit Trap. \nK: Key room. \n@:Exit");
+                    System.out.println("#: Entrance \nX: Wall. \nP: Pit Trap. \nK: Key room. \n@:Exit");
                 }
-                else if (moveChoice.equals("e")) {// prints backpack for player to see
+                else if (moveChoice.equals("e")) {
                     System.out.println("exiting...");
                     saveAndExit();
                     return;
@@ -221,7 +224,7 @@ public class Main {
             }
             int health = saveSc.nextInt();
             int maxHealth = saveSc.nextInt();
-            p1.loseHealth(maxHealth-health);
+            //p1.loseHealth(maxHealth-health);      // un comment when lose health is done
             p1.setLocation(new Location(saveSc.nextInt(), saveSc.nextInt()));
             int counter = 0;
             int locNum = saveSc.nextInt();
@@ -265,8 +268,6 @@ public class Main {
         } catch (Exception e) {
             System.out.println("+---ERROR---+");
         }
-
-
     }
 }
 

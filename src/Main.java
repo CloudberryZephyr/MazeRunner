@@ -31,7 +31,6 @@ public class Main {
         gameLoop();
     }
     //FIXME current bugs
-    // 2) p;ayer and wall swap places
     // 3) walls have a possibility to block players ability to reach exit or key. Basically walls can be placed in such a way that they are impassable.
     // i took a stab at it in board anddddd it doesn't work lol
 

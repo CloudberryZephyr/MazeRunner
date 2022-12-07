@@ -5,7 +5,6 @@ public class Shield extends Item{
     public Shield(Player player, int blockAmt, int incomingDamage){
         super(player, blockAmt, incomingDamage);
         this.name = "Shield";
-
     }
 
 

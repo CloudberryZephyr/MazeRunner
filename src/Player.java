@@ -12,7 +12,7 @@ public class Player {
     private int maxHealth;
     private int fallHealth;
     private int kineticHealth;
-    private int poisonHealth;
+    private int generalHealth;
     private Location location;
     private final int BOARD_SIZE;
     private LinkedList<Location> path;
@@ -26,8 +26,8 @@ public class Player {
         backPack = new HashSet<>();
         fallHealth = 20;
         kineticHealth = 15;
-        poisonHealth = 15;
-        health = fallHealth + kineticHealth + poisonHealth; // set initial health to 50, we'll see if this is practical or not
+        generalHealth = 15;
+        health = fallHealth + kineticHealth + generalHealth; // set initial health to 50, we'll see if this is practical or not
         maxHealth = health;
 
         location = new Location(0, 0); // starts the player in the top left corner by default
@@ -80,7 +80,6 @@ public class Player {
 
             //}
         }
-
 
         if(type.equals("f")){
             if(fallHealth > amt) {

@@ -39,4 +39,8 @@ public class Monster {
     public int getHealth(){
         return health;
     }
+
+    public Location getLocation(){
+        return location;
+    }
 }

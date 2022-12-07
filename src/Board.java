@@ -36,7 +36,6 @@ public class Board {
 
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
-        // TODO: random generation of traps in the map
 
         // currently initializes the base board in a default setting - no traps
         int keyRow = rand.nextInt(1, BOARD_SIZE);
@@ -83,8 +82,12 @@ public class Board {
         System.out.println();
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++){
+                Location thisLoc = new Location(i,j);
                 if(j==0){
                     System.out.print("|");
+                }
+                if (thisLoc.testForMonsters(monsters)){
+                    System.out.println("  ");
                 }
                 if ( (i<playerX-2) || (j < playerY-2) || (i>playerX+2) || (j>playerY+2)) {
                     System.out.print("  ");
@@ -95,8 +98,7 @@ public class Board {
                 } else {
                     System.out.print("* ");
                 }
-                if (j==BOARD_SIZE-1){ //FIXME if player goes to the bottom of the board they disapear, also happens on the far right wall
-
+                if (j==BOARD_SIZE-1){
                     System.out.print("|");
                 }
             }

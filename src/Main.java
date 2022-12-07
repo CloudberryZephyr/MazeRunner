@@ -37,7 +37,7 @@ public class Main {
 
 
     //TODO
-    // 1) finish curCell method to identify the cell the player is currently in and commence I/O
+    // 1) finish curCell method to identify the cell the player is currently in and commence I/O: Main
     // 2) make item and trap talk to each other
     // 3) finish lose health in player need to add if stmt's to determine type of damage based on string input
 
@@ -89,7 +89,6 @@ public class Main {
      * this is the player movement and game loop method. this allows the player to move
      * until they have found the key and have entered the exit cell. Includes all in-game player I\O.
      */
-
     public static void gameLoop() {
         int size = BL1.getBOARD_SIZE();
         System.out.println(">>");
@@ -137,6 +136,9 @@ public class Main {
                 else if (moveChoice.equals("")) {
 
                 }
+                else if (moveChoice.equals("l")) {
+                    System.out.println("#: Entrance \nW: Wall. \nP: Pit Trap. \nK: Key room. \n@:Exit");
+                }
                 else if (moveChoice.equals("e")) {// prints backpack for player to see
                     System.out.println("exiting...");
                     saveAndExit();
@@ -144,7 +146,7 @@ public class Main {
                 } else {
                     System.out.println("Input invalid\nPlease re-inter movement input: W, A, S, D. \n" +
                             "Press: I, to view backpack inventory. \n" + "Press: R, to print rules and instructions."
-                            +"\nPress: E to save and exit.");
+                            +"\nPress L, to view a legend of room types." + "\nPress: E to save and exit.");
                     moveI = false;
                 }
 

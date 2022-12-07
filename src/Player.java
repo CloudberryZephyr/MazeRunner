@@ -45,13 +45,13 @@ public class Player {
         if (direction == 'a' && location.getY()>0) {
             location.setLocation(location.getX(), location.getY()-1);
         }
-        if (direction == 'd' && location.getY()<BOARD_SIZE) {
+        if (direction == 'd' && location.getY()<BOARD_SIZE-1) {
             location.setLocation(location.getX(), location.getY()+1);
         }
         if (direction == 'w' && location.getX()>0) {
             location.setLocation(location.getX()-1, location.getY());
         }
-        if (direction == 's' && location.getX()<BOARD_SIZE) {
+        if (direction == 's' && location.getX()<BOARD_SIZE-1) {
             location.setLocation(location.getX()+1, location.getY());
         }
 
@@ -75,10 +75,10 @@ public class Player {
                     System.out.println("you died");
                 }
             }
-            else if() {
+            //else if() {
 
 
-            }
+            //}
         }
 
 

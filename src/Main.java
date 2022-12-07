@@ -30,9 +30,8 @@ public class Main {
         gameLoop();
     }
     //FIXME current bugs
-    // 1) if player goes to the bottom of the board they disapear, also happens on the far right wall, can backtrack but disappear at edge
-    // 2) if player with wall player and wall swap places and player cannot continue
-    // 3) walls have a possibility to block players ability to reach exit or key. Basically walls can be placed in such a way that they are impassable.
+    // 1) if player with wall player and wall swap places and player cannot continue
+    // 2) walls have a possibility to block players ability to reach exit or key. Basically walls can be placed in such a way that they are impassable.
     // i took a stab at it in board anddddd it doesn't work lol
 
 
@@ -162,7 +161,6 @@ public class Main {
 
         Cell cur = BL1.getCellAt(x,y);
         if(cur instanceof Wall) {
-            //FIXME want to check if cur cell is a wall and what im doing isnt working
         }
 
     }
@@ -226,7 +224,7 @@ public class Main {
             }
             int health = saveSc.nextInt();
             int maxHealth = saveSc.nextInt();
-            p1.loseHealth(maxHealth-health, );
+            p1.loseHealth(maxHealth-health, "");
             p1.setLocation(new Location(saveSc.nextInt(), saveSc.nextInt()));
             int counter = 0;
             int locNum = saveSc.nextInt();

@@ -50,10 +50,10 @@ public class Board {
                     cells[i][j] = new Exit(player);
                 } else if (i==keyRow && j == keyCol) {
                     cells[i][j] = new Key(player.hasKey(), player);
-//                 }else if(hold instanceof Wall && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
-//                    //TODO test to make sure wall dont print back to back
-//                    //FIXME fun fact, this really messes up level 2&3
-//                    cells[i][j] = new Empty(player);
+                 }else if(hold == traps.get(1) && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
+                    //TODO test to make sure wall dont print back to back
+                    //FIXME fun fact, this really messes up level 2&3
+                    cells[i][j] = new Empty(player);
                 } else {
                     cells[i][j] = traps.get(rand.nextInt(0,traps.size()));
                     hold = cells[i][j];
@@ -130,8 +130,8 @@ public class Board {
 
         if(difficulty==3){
             traps.add(new Wall()); // don't change this wall location -> max
-            //traps.add(new Empty(player));
-            //traps.add(new BackPack_Refil());
+            traps.add(new Empty(player));
+            traps.add(new BackPack_Refil());
             //traps.add(new Healing_Trap(player));
 
         } else if (difficulty==2) {

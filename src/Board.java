@@ -42,16 +42,22 @@ public class Board {
         int keyRow = rand.nextInt(1, BOARD_SIZE);
         int keyCol = rand.nextInt(1, BOARD_SIZE);
         initializeTraps(difficulty);
+        Cell hold = traps.get(1);
         for (int i = 0; i<BOARD_SIZE; i++){
             for (int j = 0; j<BOARD_SIZE; j++) {
                 if (i==0 && j==0){
                     cells[i][j] = new Entrance(player);
                 } else if (i == BOARD_SIZE-1 && j == BOARD_SIZE-1){
                     cells[i][j] = new Exit(player);
-                } else if (i==keyRow && j == keyCol){
+                } else if (i==keyRow && j == keyCol) {
                     cells[i][j] = new Key(player.hasKey(), player);
+                 //}else if(hold == traps.get(1) && !(i == BOARD_SIZE-1 && j == BOARD_SIZE-1)){
+                    //TODO test to make sure wall dont print back to back
+                    //FIXME fun fact, this really messes up level 2&3
+                    //cells[i][j] = new Empty(player);
                 } else {
-                        cells[i][j] = traps.get(rand.nextInt(0,traps.size()));
+                    cells[i][j] = traps.get(rand.nextInt(0,traps.size()));
+                    hold = cells[i][j];
                 }
             }
         }
@@ -121,7 +127,7 @@ public class Board {
         traps = new ArrayList<>();
 
         if(difficulty==3){
-            traps.add(new Wall());
+            traps.add(new Wall()); // don't change this wall location -> max
             traps.add(new Empty(player));
             traps.add(new BackPack_Refil());
             //traps.add(new Healing_Trap(player));
@@ -132,6 +138,7 @@ public class Board {
 
             //traps.add(new Healing_Trap(player));
         } else if (difficulty==1){
+            traps.add(new Wall());
             traps.add(new Empty(player));
         }
     }

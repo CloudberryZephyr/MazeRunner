@@ -10,6 +10,9 @@ public class Player {
     private Set<String> backPack;
     private int health;
     private int maxHealth;
+    private int fallHealth;
+    private int kineticHealth;
+    private int poisonHealth;
     private Location location;
     private final int BOARD_SIZE;
     private LinkedList<Location> path;
@@ -21,8 +24,12 @@ public class Player {
      */
     public Player(int boardSize){
         backPack = new HashSet<>();
-        health = 50; // set initial health to 50, we'll see if this is practical or not
-        maxHealth = 50;
+        fallHealth = 20;
+        kineticHealth = 15;
+        poisonHealth = 15;
+        health = fallHealth + kineticHealth + poisonHealth; // set initial health to 50, we'll see if this is practical or not
+        maxHealth = health;
+
         location = new Location(0, 0); // starts the player in the top left corner by default
         this.BOARD_SIZE = boardSize;
         path = new LinkedList<>();
@@ -56,7 +63,7 @@ public class Player {
      * Method for losing a given amount of health
      * @param amt int amount of health to lose
      */
-    public void loseHealth(int amt){
+    public void loseHealth(int amt, String type){
         health -= amt;
     }
 

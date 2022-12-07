@@ -1,16 +1,21 @@
-import java.util.ArrayList;
 
 
-
-public class Trap extends Cell{
+public abstract class Trap extends Cell{
+    //private String
 
     private Player p1;
+    protected String damageType;
+    protected int damageAmt;
 
-
-    ArrayList<String> items;
-    public Trap(){
-        //this.p1 = player;
+    public Trap(Player player,String damageType, int damage){
+        this.p1 = player;
+        this.damageType = damageType;
+        this.damageAmt = damage;
     }
+
+
+    public abstract String toString();
+
 }
 
 

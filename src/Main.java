@@ -30,11 +30,13 @@ public class Main {
         gameLoop();
     }
     //FIXME cur bugs
-    // 1) if player goes to the bottom of the board they disapear, also happens on the far right wall
+    // 1) if player goes to the bottom of the board they disapear, also happens on the far right wall, can backtrack but disappear at edge
     // 2) if player with wall player and wall swap places and player cannot continue
 
     //TODO
     // 1) finish curCell method to identify the cell the player is currently in and commence I/O
+    // 2) make item and trap talk to each other
+    // 3) finish lose health in player need to add if stmt's to determine type of damage based on string input
 
 
 

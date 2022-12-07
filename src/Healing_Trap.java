@@ -1,4 +1,4 @@
-public class Healing_Trap extends Trap{
+public class Healing_Trap extends Cell{
     private Player p1;
 
     public Healing_Trap(Player player){

@@ -44,6 +44,10 @@ public class Player {
     private LinkedList<Location> path;
     protected boolean isAlive = true;
 
+    public void setIsAlive(boolean v) {
+        isAlive = v;
+    }
+
 
     /**
      * player constructor method

@@ -88,6 +88,9 @@ public class Board {
                     System.out.print("  ");
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");
+                    if (thisLoc.testForMonsters(monsters)){
+                        player.isAlive = false;
+                    }
                 } else if (player.doesPathContain(new Location(i,j))) {
                     if (thisLoc.testForMonsters(monsters)){
                         System.out.print("  ");

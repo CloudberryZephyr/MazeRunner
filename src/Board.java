@@ -128,9 +128,10 @@ public class Board {
         traps = new ArrayList<>();
 
         if(difficulty==3){
-            traps.add(new Wall()); // don't change this wall location -> max
-            traps.add(new Empty(player));
-            traps.add(new BackPack_Refil());
+            //traps.add(new Wall()); // don't change this wall location -> max
+           // traps.add(new Empty(player));
+           // traps.add(new BackPack_Refil());
+            traps.add(new Pit_Trap(player,"f",5));
             traps.add(new Healing_Trap(player));
         } else if (difficulty==2) {
             traps.add(new Wall());

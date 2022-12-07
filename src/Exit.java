@@ -6,19 +6,15 @@ public class Exit extends Cell{
     private Player p1;
     Scanner scan = new Scanner(System.in);
 
-
-
-
     public Exit(Player player){
         this.p1 = player;
 
     }
 
-
     public boolean endGameTest(){
-        System.out.println("You found the exit Tunnel");
+        System.out.println("You found the exit tunnel gate");
         if (p1.hasKey()) {
-            System.out.println("Press T to exit through the tunnel");
+            System.out.println("Press K: to use your key to exit through the tunnel");
             String pc = scan.next().toLowerCase(Locale.ROOT);
             if (pc.equals("t")) {
                 System.out.println("Good Game, Maze Runner");

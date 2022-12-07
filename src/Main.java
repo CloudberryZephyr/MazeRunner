@@ -99,7 +99,6 @@ public class Main {
 
         while (!hasWon) {
             boolean moveI = false;
-
             while (!moveI) {
                 String moveChoice = scan.nextLine().toLowerCase(Locale.ROOT);
 
@@ -164,6 +163,8 @@ public class Main {
         Cell cur = BL1.getCellAt(x,y);
         if(cur instanceof Key){
             ((Key) cur).interAction();
+        } else if( cur instanceof Pit_Trap){
+            ((Pit_Trap) cur).IO();
         }
     }
 

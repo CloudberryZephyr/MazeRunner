@@ -19,14 +19,18 @@ public class Exit extends Cell{
 
     public boolean endGameTest(){
         System.out.println("You found the exit Tunnel");
-        //useItem
-        System.out.println("Press T to exit through the tunnel");
-        String pc = scan.next().toLowerCase(Locale.ROOT);
-        if(pc.equals("t")){
-            System.out.println("Good Game, Maze Runner");
-            System.out.println("your total time was: " + Stopwatch.getElapsedTimeSecs());
+        if (hasKey) {
+            System.out.println("Press T to exit through the tunnel");
+            String pc = scan.next().toLowerCase(Locale.ROOT);
+            if (pc.equals("t")) {
+                System.out.println("Good Game, Maze Runner");
+                System.out.println("your total time was: " + Stopwatch.getElapsedTimeSecs());
+            }
+            return true;
+        } else {
+            System.out.println("You don't have the key yet.  Please return with the key.");
         }
-        return hasKey;
+        return false;
     }
 
     @Override

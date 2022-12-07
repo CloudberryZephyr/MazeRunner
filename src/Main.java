@@ -95,8 +95,9 @@ public class Main {
 
         int size = BL1.getBOARD_SIZE();
         System.out.println(">>");
+        boolean hasWon = false;
 
-        while (!((p1.hasKey()) && exit && ((p1.getLocation().getX() == size - 1) && (p1.getLocation().getY() == size - 1)))) {
+        while (!hasWon) {
             boolean moveI = false;
 
             while (!moveI) {
@@ -147,6 +148,12 @@ public class Main {
                             "Press: I, to view backpack inventory. \n" + "Press: R, to print rules and instructions."
                             +"\nPress L, to view a legend of room types." + "\nPress: E to save and exit.");
                     moveI = false;
+                }
+
+                if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Exit) {
+                    if(((Exit) BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY())).endGameTest()){
+                        return;
+                    }
                 }
 
             }

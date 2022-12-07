@@ -10,7 +10,33 @@ public class Player {
     private Set<String> backPack;
     private int health;
     private int maxHealth;
+
+    public int getFallHealth() {
+        return fallHealth;
+    }
+
+    public void setFallHealth(int fallHealth) {
+        this.fallHealth = fallHealth;
+    }
+
     private int fallHealth;
+
+    public int getKineticHealth() {
+        return kineticHealth;
+    }
+
+    public void setKineticHealth(int kineticHealth) {
+        this.kineticHealth = kineticHealth;
+    }
+
+    public int getGeneralHealth() {
+        return generalHealth;
+    }
+
+    public void setGeneralHealth(int generalHealth) {
+        this.generalHealth = generalHealth;
+    }
+
     private int kineticHealth;
     private int generalHealth;
     private Location location;

@@ -180,6 +180,9 @@ public class Main {
                 saveWriter.println(item);
             }
             saveWriter.println(p1.getHealth());
+            saveWriter.println(p1.getFallHealth());
+            saveWriter.println((p1.getGeneralHealth()));
+            saveWriter.println(p1.getKineticHealth());
             saveWriter.println(p1.getMaxHealth());
             saveWriter.println(p1.getLocation().getX() + " " + p1.getLocation().getY());
             saveWriter.println(p1.getPath().size());
@@ -225,6 +228,9 @@ public class Main {
                 p1.addToBackpack(saveSc.next());
             }
             int health = saveSc.nextInt();
+            p1.setFallHealth(saveSc.nextInt());
+            p1.setGeneralHealth(saveSc.nextInt());
+            p1.setKineticHealth(saveSc.nextInt());
             int maxHealth = saveSc.nextInt();
             p1.loseHealth(maxHealth-health, " ");
             p1.setLocation(new Location(saveSc.nextInt(), saveSc.nextInt()));

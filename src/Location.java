@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 /**
  * @author Clara Shoemaker
  * @version 1.2
@@ -25,6 +27,7 @@ public class Location {
     public Location(Location loc){
         x = loc.x;
         y = loc.y;
+
     }
 
     /**
@@ -67,4 +70,14 @@ public class Location {
         }
         return false;
     }
+
+    public boolean testForMonsters(ArrayList<Monster> monsters){
+        for (Monster m : monsters) {
+            if (m.getLocation().equals(this)){
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

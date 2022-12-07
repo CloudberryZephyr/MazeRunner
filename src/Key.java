@@ -31,6 +31,7 @@ public class Key extends Cell{
         } else if(pick == 'P'){
             System.out.println("Why would you pull it??? You just pulled the release for a giant hidden hammer");
             player.loseHealth(10,"k");
+            System.out.println("Current health: " + player.getHealth() + "/" + player.getMaxHealth());
 
 
         }else if (pick == 'I'){

@@ -18,7 +18,7 @@ public class Exit extends Cell{
             String pc = scan.next().toLowerCase(Locale.ROOT);
             if (pc.equals("t")) {
                 System.out.println("Good Game, Maze Runner");
-                System.out.println("your total time was: " + Stopwatch.getElapsedTimeSecs());
+                System.out.println("your total time was: " + Stopwatch.getElapsedTimeSecs()); // minutes
             }
             return true;
         } else {

@@ -30,13 +30,13 @@ public class Pit_Trap extends Trap{
                     shield = new Shield(p1, 5, 10);
                 }
 
-                p1.getBackPack().remove(itemCH);
-
-
-                //it.getItem(p1,15,takeDamage(),itemCH);
                 System.out.println("Current health: " + p1.getHealth() + "/" + p1.getMaxHealth());
 
-            } else{ //(YN.equals("n")) {
+            } else if (YN.equals("n")) {
+                System.out.println("you should have used your shield");
+                takeDamage();
+                System.out.println("Current health: " + p1.getHealth() + "/" + p1.getMaxHealth());
+            } else {
                 takeDamage();
                 System.out.println("Current health: " + p1.getHealth() + "/" + p1.getMaxHealth());
             }

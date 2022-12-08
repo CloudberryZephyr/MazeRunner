@@ -7,6 +7,7 @@ public class Item {
     protected int blockAmt;
     protected int incomingDamage;
     protected int playerDamage;
+    protected Item shield;
     Scanner scan = new Scanner(System.in);
 
 
@@ -22,13 +23,31 @@ public class Item {
     }
 
 
-
     public void loseHealthAfterBlock(){
         playerDamage = incomingDamage - blockAmt;
-        p1.loseHealth(playerDamage,"fallDamage");
+        p1.loseHealth(playerDamage,"f");
     }
 
-//    public void useItem(){
+
+//    public void getItem(Player player, int blockAmt, int incomingDamage, String itemCH){
+//        String choice = itemCH.toLowerCase();
+////
+//        if(p1.getBackPack().contains(itemCH)){
+//            if(choice.equals("shield")){
+//                shield = new Shield(player,blockAmt, incomingDamage);
+//            }
+//
+//            p1.getBackPack().remove(itemCH);
+//        }
+//    }
+    public int getCurHealth(){
+        return p1.getHealth();
+    }
+    public int getMaxHealth(){
+        return maxHealth;
+    }
+
+    // public void useItem(){
 //        System.out.println("would you like to use an item?");
 //        String itemYN = scan.nextLine().toLowerCase(Locale.ROOT);
 //        if(itemYN.equals("y")){
@@ -49,22 +68,4 @@ public class Item {
 //            }
 //        }
 //    }
-
-    public void getItem(Player player, int blockAmt, int incomingDamage, String itemCH){
-
-        if(p1.getBackPack().contains(itemCH)){
-            if(itemCH.equals("Shield")){
-                Item shield = new Shield(player,blockAmt, incomingDamage);
-            }
-
-            p1.getBackPack().remove(itemCH);
-        }
-    }
-    public int getCurHealth(){
-        return p1.getHealth();
-    }
-    public int getMaxHealth(){
-        return maxHealth;
-    }
-
 }

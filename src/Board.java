@@ -117,7 +117,6 @@ public class Board {
      * @return Cell object at desired location in cells array
      */
     public Cell getCellAt(int x, int y) {
-
         return cells[x][y];
     }
 
@@ -129,7 +128,7 @@ public class Board {
         traps = new ArrayList<>();
 
         if(difficulty==3){
-            traps.add(new Wall()); // don't change this wall location -> max
+            traps.add(new Wall());
             traps.add(new Empty(player));
             traps.add(new BackPack_Refil());
             traps.add(new Pit_Trap(player,"f",5));
@@ -141,6 +140,7 @@ public class Board {
         } else if (difficulty==1){
             //traps.add(new Wall());
             traps.add(new Empty(player));
+            traps.add(new Pit_Trap(player,"f",5));
 
 
         }

@@ -65,7 +65,7 @@ public class Pit_Trap extends Trap{
      */
 
     public int takeDamage() {
-        String type = "f";
+        String type = "k";
         p1.loseHealth(10,type);
         return p1.getFallHealth();
     }

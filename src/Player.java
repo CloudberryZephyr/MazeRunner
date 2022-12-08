@@ -88,20 +88,26 @@ public class Player {
         if(type.toLowerCase().equals("f")){
             if(fallHealth > amt) {
                 fallHealth = fallHealth - amt;
-            } else if(fallHealth > 0 && fallHealth < amt){
-                int minus = fallHealth-amt;
-                if(minus < kineticHealth) {
-                    kineticHealth = kineticHealth - minus;
-                } else {
-                    System.out.println("You Died, your kinetic health ran out.");
-                    isAlive = false;
-                }
-            } else if(fallHealth == 0 && kineticHealth > amt){
-                kineticHealth = kineticHealth - amt;
-            } else if(fallHealth ==0 && kineticHealth < amt){
-                System.out.println("You died, your fall health and kinetic health have ran out");
+            } else if(fallHealth< amt){
+                System.out.println("you died");
                 isAlive = false;
+                deathByHealth = true;
             }
+
+//            } else if(fallHealth > 0 && fallHealth < amt){
+//                int minus = fallHealth-amt;
+//                if(minus < kineticHealth) {
+//                    kineticHealth = kineticHealth - minus;
+//                } else {
+//                    System.out.println("You Died, your kinetic health ran out.");
+//                    isAlive = false;
+//                }
+//            } else if(fallHealth == 0 && kineticHealth > amt){
+//                kineticHealth = kineticHealth - amt;
+//            } else if(fallHealth ==0 && kineticHealth < amt){
+//                System.out.println("You died, your fall health and kinetic health have ran out");
+//                isAlive = false;
+//            }
         }
 
         if(type.toLowerCase().equals("g")){

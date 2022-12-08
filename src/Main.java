@@ -12,6 +12,10 @@ public class Main {
     protected static boolean exit = true;
 
     /**
+     * Author: Max
+     */
+
+    /**
      * gives player an outline of the game and how to interact with the game.
      * also starts and stops a game timer which is displayed if the game is won.
      * and creates game and game loop.

@@ -109,6 +109,9 @@ public class Player {
                 isAlive = false;
             }
         }
+
+        health = fallHealth + kineticHealth + generalHealth;
+
     }
 
     /**
@@ -156,6 +159,10 @@ public class Player {
     public void addToBackpack(String thing){
         backPack.add(thing);
     }
+
+
+
+
 
 
 

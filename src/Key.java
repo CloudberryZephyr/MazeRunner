@@ -5,12 +5,24 @@ import java.util.Scanner;
 public class Key extends Cell{
     private Player player;
     private boolean keyFound;
+    /**
+     * Author: Max
+     */
 
 
+    /**
+     * creates a key that can be placed in board
+     * @param found allows player to exit if true
+     * @param p1
+     */
     public Key(boolean found, Player p1){
         this.player = p1;
         this.keyFound = found;
     }
+
+    /**
+     * simple I/O that determines whether the player will add the Key item to their bag or take damage
+     */
 
     public void interAction(){
         Scanner scan = new Scanner(System.in);
@@ -27,7 +39,7 @@ public class Key extends Cell{
 
         } else if(pick == 'P'){
             System.out.println("Why would you pull it??? You just pulled the release for a giant hidden hammer");
-            player.loseHealth(10,"k");
+            player.loseHealth(14,"k");
             System.out.println("Current health: " + player.getHealth() + "/" + player.getMaxHealth());
 
 
@@ -36,6 +48,10 @@ public class Key extends Cell{
         }
     }
 
+
+    /**
+     * @return key symbol to board
+     */
     @Override
     public String toString() {
         return "k";

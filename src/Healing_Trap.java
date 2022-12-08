@@ -29,6 +29,9 @@ public class Healing_Trap extends Cell{
 
     }
 
+    /**
+     * @return trap symbol to board
+     */
     @Override
     public String toString(){
        return "+";

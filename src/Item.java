@@ -26,9 +26,14 @@ public class Item {
         this.incomingDamage = incomingDamage;
     }
 
-    public String getName(){
+    /**
+     * reminds children of items to have a get name method which will print to backpack.
+     * @return
+     */
+    public String getName() {
         return "Item";
     }
+
 
     /**
      * returns the fall damage that is inflicted on player if the player uses an item taht has an effect on

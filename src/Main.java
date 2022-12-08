@@ -47,12 +47,13 @@ public class Main {
     //    4) Exit done
     //    5) Healing_Trap done
     //    6) Item done
-    //    7) Key
-    //    8) Key_Item
-    //    9) Pit_Trap
-    //   10) Shield
-    //   11) Trap
+    //    7) Key done
+    //    8) Key_Item done
+    //    9) Pit_Trap done
+    //   10) Shield done
+    //   11) Trap done
     //   12) Wall
+    // add output if killed by monster. put booleans in player lose health then if stmt in main
 
 
 

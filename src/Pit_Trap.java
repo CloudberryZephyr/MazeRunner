@@ -6,7 +6,16 @@ public class Pit_Trap extends Trap{
     private Player p1;
     protected Item shield;
 
+    /**
+     * Author: Max
+     */
 
+    /**
+     * creates a pit trap cell that does fall damage to player.
+     * @param player
+     * @param damageType fall damage
+     * @param damageAmt
+     */
     public Pit_Trap(Player player,String damageType, int damageAmt){
         super(player,damageType,damageAmt);
         this.p1 = player;
@@ -14,13 +23,17 @@ public class Pit_Trap extends Trap{
         this.damageAmt = 5;
     }
 
+    /**
+     * informs player that they have found the key and asks them how they would like to retrieve it.
+     */
+
     public void IO() {
-        System.out.println("you have entered a trap room, would you like ot use an item?");
+        System.out.println("you have entered a Pit trap room, would you like to use an item? Y/N");
         String YN = scan.nextLine().toLowerCase(Locale.ROOT);
         if (YN.equals("y")) {
             System.out.println("What item would you like to use?");
+            System.out.println("inventory: shield");
             String itemCH = scan.nextLine();
-            //Item it = new Item(p1,0,0);
             String choice = itemCH.toLowerCase();
 
             if (p1.getBackPack().contains(itemCH)) {
@@ -46,25 +59,22 @@ public class Pit_Trap extends Trap{
     }
 
 
-
+    /**
+     * inflicts fall damage on the player
+     * @return current fallDamage health
+     */
 
     public int takeDamage() {
-        String type = "K";
+        String type = "f";
         p1.loseHealth(10,type);
         return p1.getFallHealth();
     }
 
 
-    @Override
-    public int getDamageAmt() {
-        return damageAmt;
-    }
 
-    @Override
-    public String getDamageType() {
-        return damageType;
-    }
-
+    /**
+     * @return trap symbol to board
+     */
     @Override
     public String toString() {
         return "P";

@@ -191,6 +191,8 @@ public class Main {
             ((Key) cur).interAction();
         } else if( cur instanceof Pit_Trap){
             ((Pit_Trap) cur).IO();
+        } else if(cur instanceof Healing_Trap){
+            ((Healing_Trap) cur).refillHealth();
         }
     }
 

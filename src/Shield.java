@@ -6,17 +6,17 @@ public class Shield extends Item{
     public Shield(Player player, int blockAmt, int incomingDamage){
         super(player, blockAmt, incomingDamage);
         this.name = "Shield";
-        this.blockAmt = 5;
+        this.blockAmt = blockAmt;
         this.incomingDamage = incomingDamage;
         loseHealthAfterBlock();
     }
 
-    public int takeDamage() {
-        String type = "f";
-
-        p1.loseHealth(incomingDamage,type);
-        return p1.getFallHealth();
-    }
+//    public int takeDamage() {
+//        String type = "f";
+//
+//        p1.loseHealth(incomingDamage,type);
+//        return p1.getFallHealth();
+//    }
 
     public void loseHealthAfterBlock(){
         playerDamage = incomingDamage - blockAmt;

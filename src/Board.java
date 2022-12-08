@@ -141,6 +141,7 @@ public class Board {
             //traps.add(new Wall());
             traps.add(new Empty(player));
             traps.add(new Pit_Trap(player,"f",5));
+            traps.add(new Healing_Trap(player));
 
 
         }

@@ -12,6 +12,7 @@ public class Healing_Trap extends Cell{
         System.out.println("Congratulation you found a healing room, this room will refill your health to full");
         int fillAmt = p1.getMaxHealth() -  p1.getHealth();
         p1.gainHealth(fillAmt);
+        //TODO add player cur health
     }
 
     @Override

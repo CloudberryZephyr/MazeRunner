@@ -3,7 +3,7 @@ public class Healing_Trap extends Cell{
 
     public Healing_Trap(Player player){
         this.p1 = player;
-        refillHealth();
+        // FIXME - removed this line
     }
 
     public void refillHealth(){

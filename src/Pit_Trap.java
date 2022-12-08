@@ -11,7 +11,7 @@ public class Pit_Trap extends Trap{
         super(player,damageType,damageAmt);
         this.p1 = player;
         this.damageType = "F";
-        this.damageAmt = damageAmt;
+        this.damageAmt = 5;
     }
 
     public void IO(){
@@ -24,24 +24,24 @@ public class Pit_Trap extends Trap{
             String choice = itemCH.toLowerCase();
 
             if (p1.getBackPack().contains(itemCH)) {
+                System.out.println("got here");
                 if (choice.equals("shield")) {
-                    shield = new Shield(p1, 2, damageAmt);
+                    System.out.println("got here too");
+                    shield = new Shield(p1, 5, 10);
                 }
                 //p1.getBackPack().remove(itemCH);
 
                 //it.getItem(p1,15,takeDamage(),itemCH);
                 System.out.println("Current health: " + p1.getHealth() + "/" + p1.getMaxHealth());
 
-            }
-        }
-        else if(YN.equals("n")) {
+            } else if (YN.equals("n")) {
                 System.out.println("you should have used your shield");
                 takeDamage();
                 System.out.println("Current health: " + p1.getHealth() + "/" + p1.getMaxHealth());
-        } else{
-            takeDamage();
-            System.out.println("Current health: " + p1.getHealth() + "/" + p1.getMaxHealth());
-
+            } else {
+                takeDamage();
+                System.out.println("Current health: " + p1.getHealth() + "/" + p1.getMaxHealth());
+            }
         }
     }
 

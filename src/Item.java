@@ -28,44 +28,10 @@ public class Item {
         p1.loseHealth(playerDamage,"f");
     }
 
-
-//    public void getItem(Player player, int blockAmt, int incomingDamage, String itemCH){
-//        String choice = itemCH.toLowerCase();
-////
-//        if(p1.getBackPack().contains(itemCH)){
-//            if(choice.equals("shield")){
-//                shield = new Shield(player,blockAmt, incomingDamage);
-//            }
-//
-//            p1.getBackPack().remove(itemCH);
-//        }
-//    }
     public int getCurHealth(){
         return p1.getHealth();
     }
     public int getMaxHealth(){
         return maxHealth;
     }
-
-    // public void useItem(){
-//        System.out.println("would you like to use an item?");
-//        String itemYN = scan.nextLine().toLowerCase(Locale.ROOT);
-//        if(itemYN.equals("y")){
-//            System.out.println("which item would you like to use?");
-//            System.out.println(p1.getBackPack());
-//            String itemCH = scan.nextLine();
-//
-//
-//            boolean itemI = false;
-//
-//            while(!itemI){
-//                if(p1.getBackPack().contains(itemCH)){
-//
-//
-//                    p1.getBackPack().remove(itemCH);
-//                }
-//
-//            }
-//        }
-//    }
 }

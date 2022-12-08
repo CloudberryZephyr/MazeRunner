@@ -45,43 +45,48 @@ public class Main {
      * prompts for username, determines game level, and creates new board and player
      */
     public static void gameStart() {
-        System.out.println("Load last save? y/n ");
-        String loadSave = scan.nextLine();
-        if (loadSave.toLowerCase().equals("n")) {
-            System.out.println("Please enter username:");
-            userName = scan.nextLine();
+        boolean goodInput = false;
+        while (!goodInput) {
+            System.out.println("Load last save? y/n ");
+            String loadSave = scan.nextLine();
+            if (loadSave.toLowerCase().equals("n")) {
+                goodInput = true;
+                System.out.println("Please enter username:");
+                userName = scan.nextLine();
 
 
-            System.out.println("\nChoose your difficulty, integer: from 1-3");
-            boolean levelI = false;
+                System.out.println("\nChoose your difficulty, integer: from 1-3");
+                boolean levelI = false;
 
-            while (!levelI) {
-                String level = scan.next();
+                while (!levelI) {
+                    String level = scan.next();
 
-                if (level.equals("1")) {
-                    difficulty = Integer.parseInt(level);
-                    p1 = new Player(5);
-                    BL1 = new Board(difficulty, p1, 5);
-                    levelI = true;
-                } else if (level.equals("2")) {
-                    difficulty = Integer.parseInt(level);
-                    p1 = new Player(15);
-                    BL1 = new Board(difficulty, p1, 15);
-                    levelI = true;
-                } else if (level.equals("3")) {
-                    difficulty = Integer.parseInt(level);
-                    p1 = new Player(20);
-                    BL1 = new Board(difficulty, p1, 20);
-                    levelI = true;
-                } else {
-                    levelI = false;
-                    System.out.println("Input invalid, please enter an integer 1-3");
+                    if (level.equals("1")) {
+                        difficulty = Integer.parseInt(level);
+                        p1 = new Player(5);
+                        BL1 = new Board(difficulty, p1, 5);
+                        levelI = true;
+                    } else if (level.equals("2")) {
+                        difficulty = Integer.parseInt(level);
+                        p1 = new Player(15);
+                        BL1 = new Board(difficulty, p1, 15);
+                        levelI = true;
+                    } else if (level.equals("3")) {
+                        difficulty = Integer.parseInt(level);
+                        p1 = new Player(20);
+                        BL1 = new Board(difficulty, p1, 20);
+                        levelI = true;
+                    } else {
+                        levelI = false;
+                        System.out.println("Input invalid, please enter an integer 1-3");
+                    }
                 }
+            } else if (loadSave.toLowerCase().equals("y")) {
+                loadSave();
+                goodInput = true;
+            } else {
+                System.out.println("+---ERROR---+");
             }
-        } else if (loadSave.toLowerCase().equals("y")){
-            loadSave();
-        } else {
-            System.out.println("+---ERROR---+");
         }
     }
 

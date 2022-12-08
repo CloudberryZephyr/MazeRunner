@@ -26,6 +26,7 @@ public class Player {
     private boolean isAlive = true;
 
 
+
     /**
      * player constructor method
      * TODO: determine what to give the player initially
@@ -43,6 +44,7 @@ public class Player {
         path = new LinkedList<>();
 
     }
+
     /**
      * moves the Player by changing its location
      * @param direction string representation of the four movement options: up, down, left, and right
@@ -65,6 +67,7 @@ public class Player {
         // adds the new location to a player path for use by SmartMonsters
         path.add(new Location(location));
     }
+
     /**
      * Method for losing a given amount of health
      * @param amt int amount of health to lose
@@ -107,27 +110,13 @@ public class Player {
             }
         }
     }
+
     /**
      * Method for gaining a given amount of health
      * @param amt int amount of health to gain
      */
     public void gainHealth(int amt){
         health += amt;
-    }
-    /**
-     * getter for int data member health
-     * @return int value of health variable
-     */
-    public int getHealth(){
-        return health;
-    }
-
-    /**
-     * getter for maxHealth data member
-     * @return int value of maxHealth
-     */
-    public int getMaxHealth(){
-        return maxHealth;
     }
 
     /**
@@ -139,35 +128,11 @@ public class Player {
     }
 
     /**
-     * getter method for the player's current location
-     * @return Location object for the player - NOTE: this is the same object, not a copy
-     */
-    public Location getLocation(){
-        return location;
-    }
-
-    /**
      * fills backpack according to difficulty level
      */
     public void fillBackpack(){
         //TODO finish this method
         backPack.add("Nuke");
-    }
-
-    /**
-     * getter for backpack ArrayList
-     * @return object reference for ArrayList object backpack
-     */
-    public Set<String> getBackPack(){
-        return backPack;
-    }
-
-    /**
-     * getter for path data member
-     * @return LinkedList of all past locations travelled by the player, in order.
-     */
-    public LinkedList<Location> getPath(){
-        return path;
     }
 
     /**
@@ -184,27 +149,18 @@ public class Player {
         return false;
     }
 
+    /**
+     * Adds a String representing an Item to the backpack hashset
+     * @param thing String value to be added to backpack
+     */
     public void addToBackpack(String thing){
         backPack.add(thing);
     }
 
-    public void setLocation(Location loc){
-        location = loc;
-    }
-
-    public void setPath(LinkedList<Location> path) {
-        this.path = path;
-    }
-
-
-
-
-
-
-
 
 
     /* GETTERS AND SETTERS */
+
     /**
      * getter for fallHeath data member
      * @return int value of fallHealth
@@ -212,6 +168,7 @@ public class Player {
     public int getFallHealth() {
         return fallHealth;
     }
+
     /**
      * setter for fallHealth data member
      * @param fallHealth desired int value of fallHealth
@@ -219,6 +176,7 @@ public class Player {
     public void setFallHealth(int fallHealth) {
         this.fallHealth = fallHealth;
     }
+
     /**
      * getter for kineticHealth data member
      * @return int value of kineticHealth
@@ -226,6 +184,7 @@ public class Player {
     public int getKineticHealth() {
         return kineticHealth;
     }
+
     /**
      * setter for kineticHealth data member
      * @param kineticHealth desired int value for kineticHealth
@@ -233,6 +192,7 @@ public class Player {
     public void setKineticHealth(int kineticHealth) {
         this.kineticHealth = kineticHealth;
     }
+
     /**
      * getter for generalHealth data member
      * @return int value of generalHealth
@@ -240,6 +200,7 @@ public class Player {
     public int getGeneralHealth() {
         return generalHealth;
     }
+
     /**
      * setter for generalHealth data member
      * @param generalHealth desired int value for generalHealth
@@ -252,14 +213,71 @@ public class Player {
      * getter for isAlive data member
      * @return boolean value of isAlive
      */
-    public boolean getIsAlive(){
+    public boolean getIsAlive() {
         return isAlive;
     }
+
     /**
      * setter for isAlive data member
      * @param v desired boolean value for isAlive
      */
     public void setIsAlive(boolean v) {
         isAlive = v;
+    }
+
+    /**
+     * getter for int data member health
+     * @return int value of health variable
+     */
+    public int getHealth() {
+        return health;
+    }
+
+    /**
+     * getter for maxHealth data member
+     * @return int value of maxHealth
+     */
+    public int getMaxHealth() {
+        return maxHealth;
+    }
+
+    /**
+     * getter method for the player's current location
+     * @return Location object for the player - NOTE: this is the same object, not a copy
+     */
+    public Location getLocation() {
+        return location;
+    }
+
+    /**
+     * setter for location data member
+     * @param loc desired Location object corresponding to the player's desired location in the board
+     */
+    public void setLocation(Location loc){
+        location = loc;
+    }
+
+    /**
+     * getter for backpack ArrayList
+     * @return object reference for ArrayList object backpack
+     */
+    public Set<String> getBackPack() {
+        return backPack;
+    }
+
+    /**
+     * getter for path data member
+     * @return LinkedList of all past locations travelled by the player, in order.
+     */
+    public LinkedList<Location> getPath() {
+        return path;
+    }
+
+    /**
+     * setter for LinkedList<Location></Location> data member path
+     * @param path desired LinkedList<Location></Location> object to be referenced by path data member
+     */
+    public void setPath(LinkedList<Location> path) {
+        this.path = path;
     }
 }

@@ -35,9 +35,19 @@ public class Main {
     }
 
     //TODO
-    // 1) finish curCell method to identify the cell the player is currently in and commence I/O: Main
-    // 2) make item and trap talk to each other
-    // 3) walls could trap player
+    // JavaDoc for:
+    //    1) Cell
+    //    2) Empty
+    //    3) Entrance
+    //    4) Exit
+    //    5) Healing_Trap
+    //    6) Item
+    //    7) Key
+    //    8) Key_Item
+    //    9) Pit_Trap
+    //   10) Shield
+    //   11) Trap
+    //   12) Wall
 
 
 

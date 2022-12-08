@@ -56,6 +56,11 @@ public class Location {
         return y;
     }
 
+    /**
+     * determines if a given object is essentially equal to this Location object
+     * @param other Object given to compare to this Location
+     * @return boolean value true if this Location is essentially equal to the given Object, false if it is not
+     */
     @Override
     public boolean equals(Object other){
         if (other == this) {

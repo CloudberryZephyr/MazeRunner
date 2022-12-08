@@ -25,6 +25,7 @@ public class Player {
 
     private boolean isAlive = true;
 
+    protected Boolean deathByHealth = true;
 
 
     /**
@@ -80,6 +81,7 @@ public class Player {
             } else if(kineticHealth < amt) {
                     System.out.println("you died");
                     isAlive = false;
+                    deathByHealth = true;
             }
         }
 
@@ -109,6 +111,7 @@ public class Player {
             if(generalHealth < amt){
                 System.out.println("You Died, your life force threw in the towel");
                 isAlive = false;
+                deathByHealth = false;
             }
         }
 
@@ -162,12 +165,6 @@ public class Player {
         backPack.add(thing);
     }
 
-
-
-
-
-
-
     /* GETTERS AND SETTERS */
 
     /**
@@ -176,6 +173,14 @@ public class Player {
      */
     public int getFallHealth() {
         return fallHealth;
+    }
+
+    /**
+     * getter for death by health boolean
+     * @return int value of fallHealth
+     */
+    public boolean getDeathByHealth() {
+        return deathByHealth;
     }
 
     /**

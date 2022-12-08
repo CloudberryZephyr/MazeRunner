@@ -189,11 +189,13 @@ public class Main {
                 }
 
                 // if the player is dead, lose the game
-                if(!p1.getIsAlive()){
+                if(!p1.getIsAlive() && p1.getDeathByHealth()){
+                    gameEnd = true;
+                    System.out.println("you found the monster, or did it find you??");
+                    System.out.println("ether way, you died");
+                } else if(!p1.getIsAlive()){
                     gameEnd = true;
                 }
-
-
             }
         }
     }

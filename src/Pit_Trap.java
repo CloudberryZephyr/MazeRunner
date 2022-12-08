@@ -27,9 +27,6 @@ public class Pit_Trap extends Trap{
                 if (choice.equals("shield")) {
                     shield = new Shield(p1, 5, 10);
                 }
-                //p1.getBackPack().remove(itemCH);
-
-                //it.getItem(p1,15,takeDamage(),itemCH);
                 System.out.println("Current fall health: " + p1.getFallHealth() + "/20" +
                         "\nCurrent kinetic health: " + p1.getKineticHealth() + "/15" +
                         "\nCurrent general health: " + p1.getGeneralHealth() + "/15");

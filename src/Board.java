@@ -37,7 +37,7 @@ public class Board {
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
         boardView = new Cell[5][5];
 
-        // currently initializes the base board in a default setting - no traps
+        // initializes cells array
         int keyRow = rand.nextInt(1, BOARD_SIZE);
         int keyCol = rand.nextInt(1, BOARD_SIZE);
         initializeTraps(difficulty);

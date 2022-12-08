@@ -94,9 +94,9 @@ public class Main {
     public static void gameLoop() {
 
         int size = BL1.getBOARD_SIZE();
-        boolean hasWon = false;
+        boolean gameEnd = false;
 
-        while (!hasWon) {
+        while (!gameEnd) {
             boolean moveI = false;
             while (!moveI) {
                 System.out.print(">>");
@@ -149,15 +149,7 @@ public class Main {
                     moveI = false;
                 }
 
-                if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Exit) {
-                    if(((Exit) BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY())).endGameTest()){
-                        hasWon = true;
-                    }
-                }
-                if(!p1.isAlive){
-                    hasWon = true;
-                }
-
+                // move the monsters
                 for (Monster m : BL1.getMonsters()) {
                     if (m instanceof SmartMonster) {
                         ((SmartMonster) m).move(BL1.getBOARD_SIZE());
@@ -166,10 +158,28 @@ public class Main {
                     }
                 }
 
+                // if the player is at the exit, and the endGameTest returns true, win the game
+                if (BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY()) instanceof Exit) {
+                    if(((Exit) BL1.getCellAt(p1.getLocation().getX(), p1.getLocation().getY())).endGameTest()){
+                        gameEnd = true;
+                    }
+                }
+
+                // if the player is dead, lose the game
+                if(!p1.getIsAlive()){
+                    gameEnd = true;
+                }
+
+
             }
         }
     }
 
+    /**
+     * lets player interact with the cell at the given coordinates
+     * @param x int value for column of desired cell
+     * @param y int value for row of desired cell
+     */
     public static void curCell(int x, int y){
         Cell cur = BL1.getCellAt(x,y);
         if(cur instanceof Key){
@@ -179,6 +189,9 @@ public class Main {
         }
     }
 
+    /**
+     * saves all necessary information of current game to a txt file
+     */
     public static void saveAndExit(){
         try {
             PrintWriter saveWriter = new PrintWriter("lastSave.txt");
@@ -210,9 +223,9 @@ public class Main {
             // write out monster information
             for (Monster m : BL1.getMonsters()) {
                 if (m instanceof SmartMonster){
-                    saveWriter.println("Smart " + ((SmartMonster) m).location.getX() + " " + ((SmartMonster) m).location.getY() + " " + ((SmartMonster) m).getHealth());
+                    saveWriter.println("Smart " + ((SmartMonster) m).location.getX() + " " + ((SmartMonster) m).location.getY());
                 } else {
-                    saveWriter.println("Dumb " + m.location.getX() + " " + m.location.getY() + " " + m.getHealth());
+                    saveWriter.println("Dumb " + m.location.getX() + " " + m.location.getY());
                 }
             }
             saveWriter.close();
@@ -224,6 +237,9 @@ public class Main {
 
     }
 
+    /**
+     * reads information from a txt file and converts it into game data
+     */
     public static void loadSave(){
         try {
             File lastSave = new File("lastSave.txt");
@@ -277,9 +293,9 @@ public class Main {
             while (saveSc.hasNext()) {
                 String type = saveSc.next();
                 if (type.equals("Smart")) {
-                    monsters.add(new SmartMonster(saveSc.nextInt(), saveSc.nextInt(), saveSc.nextInt(), p1));
+                    monsters.add(new SmartMonster(saveSc.nextInt(), saveSc.nextInt(), p1));
                 } else if (type.equals("Dumb")){
-                    monsters.add(new Monster(saveSc.nextInt(), saveSc.nextInt(), saveSc.nextInt()));
+                    monsters.add(new Monster(saveSc.nextInt(), saveSc.nextInt()));
                 }
             }
 
@@ -290,6 +306,10 @@ public class Main {
         }
     }
 
+    /**
+     * Changes the player's location in a desired location if the cell they wish to occupy is not an instance of the Wall class
+     * @param direction String representing WASD direction the player wishes to move
+     */
     public static void moveIfNoWall(String direction){
         if (direction.equals("w")) {
             p1.move('w');

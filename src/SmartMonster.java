@@ -10,8 +10,8 @@ public class SmartMonster extends Monster{
      * @param x int value for the smartMonster's starting column
      * @param y int value for the smartMonster's starting row
      */
-    public SmartMonster(int x, int y, int health, Player player){
-        super(x,y, health);
+    public SmartMonster(int x, int y, Player player){
+        super(x,y);
         this.player = player;
     }
 

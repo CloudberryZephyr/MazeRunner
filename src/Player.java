@@ -11,42 +11,19 @@ public class Player {
     private int health;
     private int maxHealth;
 
-    public int getFallHealth() {
-        return fallHealth;
-    }
-
-    public void setFallHealth(int fallHealth) {
-        this.fallHealth = fallHealth;
-    }
-
     private int fallHealth;
 
-    public int getKineticHealth() {
-        return kineticHealth;
-    }
-
-    public void setKineticHealth(int kineticHealth) {
-        this.kineticHealth = kineticHealth;
-    }
-
-    public int getGeneralHealth() {
-        return generalHealth;
-    }
-
-    public void setGeneralHealth(int generalHealth) {
-        this.generalHealth = generalHealth;
-    }
-
     private int kineticHealth;
-    private int generalHealth;
-    private Location location;
-    private final int BOARD_SIZE;
-    private LinkedList<Location> path;
-    protected boolean isAlive = true;
 
-    public void setIsAlive(boolean v) {
-        isAlive = v;
-    }
+    private int generalHealth;
+
+    private Location location;
+
+    private final int BOARD_SIZE;
+
+    private LinkedList<Location> path;
+
+    private boolean isAlive = true;
 
 
     /**
@@ -66,7 +43,6 @@ public class Player {
         path = new LinkedList<>();
 
     }
-
     /**
      * moves the Player by changing its location
      * @param direction string representation of the four movement options: up, down, left, and right
@@ -89,7 +65,6 @@ public class Player {
         // adds the new location to a player path for use by SmartMonsters
         path.add(new Location(location));
     }
-
     /**
      * Method for losing a given amount of health
      * @param amt int amount of health to lose
@@ -132,7 +107,6 @@ public class Player {
             }
         }
     }
-
     /**
      * Method for gaining a given amount of health
      * @param amt int amount of health to gain
@@ -140,7 +114,6 @@ public class Player {
     public void gainHealth(int amt){
         health += amt;
     }
-
     /**
      * getter for int data member health
      * @return int value of health variable
@@ -221,5 +194,72 @@ public class Player {
 
     public void setPath(LinkedList<Location> path) {
         this.path = path;
+    }
+
+
+
+
+
+
+
+
+
+    /* GETTERS AND SETTERS */
+    /**
+     * getter for fallHeath data member
+     * @return int value of fallHealth
+     */
+    public int getFallHealth() {
+        return fallHealth;
+    }
+    /**
+     * setter for fallHealth data member
+     * @param fallHealth desired int value of fallHealth
+     */
+    public void setFallHealth(int fallHealth) {
+        this.fallHealth = fallHealth;
+    }
+    /**
+     * getter for kineticHealth data member
+     * @return int value of kineticHealth
+     */
+    public int getKineticHealth() {
+        return kineticHealth;
+    }
+    /**
+     * setter for kineticHealth data member
+     * @param kineticHealth desired int value for kineticHealth
+     */
+    public void setKineticHealth(int kineticHealth) {
+        this.kineticHealth = kineticHealth;
+    }
+    /**
+     * getter for generalHealth data member
+     * @return int value of generalHealth
+     */
+    public int getGeneralHealth() {
+        return generalHealth;
+    }
+    /**
+     * setter for generalHealth data member
+     * @param generalHealth desired int value for generalHealth
+     */
+    public void setGeneralHealth(int generalHealth) {
+        this.generalHealth = generalHealth;
+    }
+
+    /**
+     * getter for isAlive data member
+     * @return boolean value of isAlive
+     */
+    public boolean getIsAlive(){
+        return isAlive;
+    }
+    /**
+     * setter for isAlive data member
+     * @param v desired boolean value for isAlive
+     */
+    public void setIsAlive(boolean v) {
+        isAlive = v;
     }
 }

@@ -30,8 +30,8 @@ public class Board {
         rand = new Random();
         monsters = new ArrayList<>();
         for (int i = 0; i<difficulty; i++){
-            monsters.add(new Monster(boardSize-1, boardSize-1, 10));
-            monsters.add(new SmartMonster(boardSize-1, boardSize-1, 10, player));
+            monsters.add(new Monster(boardSize-1, boardSize-1));
+            monsters.add(new SmartMonster(boardSize-1, boardSize-1, player));
         }
 
         cells = new Cell[BOARD_SIZE][BOARD_SIZE];
@@ -89,7 +89,7 @@ public class Board {
                 } else if (i == playerX && j == playerY) {
                     System.out.print("U ");
                     if (thisLoc.testForMonsters(monsters)){
-                        player.isAlive = false;
+                        player.setIsAlive(false);
                     }
                 } else if (thisLoc.testForMonsters(monsters)){
                     System.out.print("  ");
@@ -146,12 +146,26 @@ public class Board {
         }
     }
 
+    /**
+     * getter for final BOARD_SIZE data member
+     * @return int value of BOARD_SIZE
+     */
     public int getBOARD_SIZE(){return BOARD_SIZE;}
 
+    /**
+     * getter for ArrayList<Monster> holding all Monster objects in the board
+     * @return ArrayList<Monster> containing this board's Monster objects
+     */
     public ArrayList<Monster> getMonsters(){
         return monsters;
     }
 
+    /**
+     * sets object at a given index in the cells array to a given Cell object
+     * @param x int value for the desired column in the cells array
+     * @param y int value for the desired row in the cells array
+     * @param cell Cell object to be placed at the given index in the cells array
+     */
     public void setCellAt(int x, int y, Cell cell){
         cells[x][y] = cell;
     }

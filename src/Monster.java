@@ -5,7 +5,6 @@ import java.util.Random;
  * @version 1.2
  */
 public class Monster {
-    private int health;
     protected Location location;
     private Random rand;
 
@@ -14,8 +13,7 @@ public class Monster {
      * @param x int value for the monster's starting column
      * @param y int value for the monster's starting row
      */
-    public Monster(int x, int y, int health) {
-        this.health = health;   // initializing monster's health to 10, we'll see if this is practical
+    public Monster(int x, int y) {
         location = new Location(x, y);
         rand = new Random();
     }
@@ -36,10 +34,10 @@ public class Monster {
          }
     }
 
-    public int getHealth(){
-        return health;
-    }
-
+    /**
+     * getter for monster's Location
+     * @return Location object tracking monster's position in the board
+     */
     public Location getLocation(){
         return location;
     }

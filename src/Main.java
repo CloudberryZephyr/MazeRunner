@@ -11,7 +11,12 @@ public class Main {
     private static Player p1;
     protected static boolean exit = true;
 
-
+    /**
+     * gives player an outline of the game and how to interact with the game.
+     * also starts and stops a game timer which is displayed if the game is won.
+     * and creates game and game loop.
+     * @param args
+     */
 
     public static void main(String[] args) {
 //        System.out.println("you have entered the maze and are at location 0,0\n" +
@@ -36,12 +41,12 @@ public class Main {
 
     //TODO
     // JavaDoc for:
-    //    1) Cell
-    //    2) Empty
-    //    3) Entrance
-    //    4) Exit
-    //    5) Healing_Trap
-    //    6) Item
+    //    1) Cell done
+    //    2) Empty done
+    //    3) Entrance done
+    //    4) Exit done
+    //    5) Healing_Trap done
+    //    6) Item done
     //    7) Key
     //    8) Key_Item
     //    9) Pit_Trap
@@ -151,7 +156,9 @@ public class Main {
 
                 }
                 else if (moveChoice.equals("l")) {
-                    System.out.println("#: Entrance \nX: Wall. \nP: Pit Trap. \nK: Key room. \n@:Exit");
+                    System.out.println("#: Entrance \nX: Wall. \nP: Pit Trap. \nK: Key room. \n@:Exit \n+: Healing Room. .: Empty Room" +
+                            "\n"
+                    );
                 }
                 else if (moveChoice.equals("e")) {
                     System.out.println("exiting...");
@@ -201,7 +208,7 @@ public class Main {
             ((Key) cur).interAction();
         } else if( cur instanceof Pit_Trap){
             ((Pit_Trap) cur).IO();
-        } else if(cur instanceof Healing_Trap){
+        } else if(cur instanceof Healing_Trap) {
             ((Healing_Trap) cur).refillHealth();
         }
     }

@@ -1,10 +1,21 @@
 public class Healing_Trap extends Cell{
     private Player p1;
 
+    /**
+     * Author: Max
+     */
+
+    /**
+     * offers a room where players health will be refilled
+     * @param player
+     */
     public Healing_Trap(Player player){
         this.p1 = player;
     }
 
+    /**
+     * finds correct health type and refills it to the MaxHealth defined in the player class
+     */
     public void refillHealth(){
         // want to change this so that the player is healed at an amount per second.
         // And movement is blocked while healing is taking place.

@@ -6,9 +6,6 @@ public class Key extends Cell{
     private Player player;
     private boolean keyFound;
 
-//    private int playerCurX = player.getLocation().getX();
-//    private int playerCurY = player.getLocation().getY();
-
 
     public Key(boolean found, Player p1){
         this.player = p1;

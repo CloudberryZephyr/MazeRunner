@@ -140,6 +140,7 @@ public class Board {
         } else if (difficulty==1){
             traps.add(new Wall());
             traps.add(new Empty(player));
+            traps.add(new Empty(player));
         }
     }
 

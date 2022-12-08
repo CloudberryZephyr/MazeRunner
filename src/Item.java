@@ -7,10 +7,18 @@ public class Item {
     protected int blockAmt;
     protected int incomingDamage;
     protected int playerDamage;
-    protected Item shield;
-    Scanner scan = new Scanner(System.in);
 
 
+    /**
+     * Author: Max
+     */
+
+    /**
+     * does much the same as cell, all items in backpack inherit from this class.
+     * @param player
+     * @param blockAmt damage that item may block if the damage type can be affected by the item
+     * @param incomingDamage damage that trap will deal
+     */
     public Item (Player player,int blockAmt, int incomingDamage){
         this.p1 = player;
         this.blockAmt = blockAmt;
@@ -22,15 +30,12 @@ public class Item {
         return "Item";
     }
 
+    /**
+     * returns the fall damage that is inflicted on player if the player uses an item taht has an effect on
+     * fall damage
+     */
     public void loseHealthAfterBlock(){
         playerDamage = incomingDamage - blockAmt;
         p1.loseHealth(playerDamage,"f");
-    }
-
-    public int getCurHealth(){
-        return p1.getHealth();
-    }
-    public int getMaxHealth(){
-        return maxHealth;
     }
 }

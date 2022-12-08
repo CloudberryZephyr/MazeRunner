@@ -22,7 +22,6 @@ public class Item {
         return "Item";
     }
 
-
     public void loseHealthAfterBlock(){
         playerDamage = incomingDamage - blockAmt;
         p1.loseHealth(playerDamage,"f");

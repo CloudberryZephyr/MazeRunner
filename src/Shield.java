@@ -11,12 +11,6 @@ public class Shield extends Item{
         loseHealthAfterBlock();
     }
 
-//    public int takeDamage() {
-//        String type = "f";
-//
-//        p1.loseHealth(incomingDamage,type);
-//        return p1.getFallHealth();
-//    }
 
     public void loseHealthAfterBlock(){
         playerDamage = incomingDamage - blockAmt;

@@ -25,13 +25,13 @@ public class Monster {
      */
     public void move(int boardSize) {
          int direction = rand.nextInt(4);
-         if (direction == 0 && location.getY()<boardSize){
+         if (direction == 0 && location.getY()>0){
              location.setLocation(location.getX(), location.getY()-1);
-         } else if (direction == 1 && location.getY()>0){
+         } else if (direction == 1 && location.getY()<boardSize){
              location.setLocation(location.getX(), location.getY()+1);
-         } else if (direction == 2 && location.getX()<boardSize){
+         } else if (direction == 2 && location.getX()>0){
              location.setLocation(location.getX()-1, location.getY());
-         } else if (direction == 3 && location.getX()>0){
+         } else if (direction == 3 && location.getX()<boardSize){
              location.setLocation(location.getX()+1, location.getY());
          }
     }

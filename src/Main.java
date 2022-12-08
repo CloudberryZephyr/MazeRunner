@@ -47,7 +47,7 @@ public class Main {
     public static void gameStart() {
         System.out.println("Load last save? y/n ");
         String loadSave = scan.nextLine();
-        if (loadSave.equals("n")) {
+        if (loadSave.toLowerCase().equals("n")) {
             System.out.println("Please enter username:");
             userName = scan.nextLine();
 
@@ -78,7 +78,7 @@ public class Main {
                     System.out.println("Input invalid, please enter an integer 1-3");
                 }
             }
-        } else if (loadSave.equals("y")){
+        } else if (loadSave.toLowerCase().equals("y")){
             loadSave();
         } else {
             System.out.println("+---ERROR---+");
@@ -94,13 +94,13 @@ public class Main {
     public static void gameLoop() {
 
         int size = BL1.getBOARD_SIZE();
-        System.out.println(">>");
         boolean hasWon = false;
 
         while (!hasWon) {
             boolean moveI = false;
             while (!moveI) {
-                String moveChoice = scan.nextLine().toLowerCase(Locale.ROOT);
+                System.out.print(">>");
+                String moveChoice = scan.nextLine().toLowerCase();
 
 
                 if (moveChoice.equals("w")) {

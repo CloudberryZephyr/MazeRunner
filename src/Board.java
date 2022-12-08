@@ -91,12 +91,10 @@ public class Board {
                     if (thisLoc.testForMonsters(monsters)){
                         player.isAlive = false;
                     }
+                } else if (thisLoc.testForMonsters(monsters)){
+                    System.out.print("  ");
                 } else if (player.doesPathContain(new Location(i,j))) {
-                    if (thisLoc.testForMonsters(monsters)){
-                        System.out.print("  ");
-                    } else {
-                        System.out.print(cells[i][j].toString() + " ");
-                    }
+                    System.out.print(cells[i][j].toString() + " ");
                 } else {
                     System.out.print("* ");
                 }

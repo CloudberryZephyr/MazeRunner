@@ -73,7 +73,7 @@ public class Player {
      * @param amt int amount of health to lose
      */
     public void loseHealth(int amt, String type){ // this is getting very complicated and may be better to do one damage type
-        if(type.equals("K")){
+        if(type.toLowerCase().equals("k")){
             if(kineticHealth > amt) {
                 kineticHealth = kineticHealth - amt;
             } else if(kineticHealth < amt) {
@@ -81,7 +81,7 @@ public class Player {
             }
         }
 
-        if(type.equals("f")){
+        if(type.toLowerCase().equals("f")){
             if(fallHealth > amt) {
                 fallHealth = fallHealth - amt;
             } else if(fallHealth > 0 && fallHealth < amt){
@@ -100,7 +100,7 @@ public class Player {
             }
         }
 
-        if(type.equals("g")){
+        if(type.toLowerCase().equals("g")){
             if(generalHealth > amt) {
                 generalHealth = generalHealth - amt;
             }

@@ -42,6 +42,7 @@ public class Player {
         location = new Location(0, 0); // starts the player in the top left corner by default
         this.BOARD_SIZE = boardSize;
         path = new LinkedList<>();
+        backPack.add("shield");
 
     }
 

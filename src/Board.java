@@ -129,18 +129,29 @@ public class Board {
 
         if(difficulty==3){
             traps.add(new Wall());
-            traps.add(new Empty(player));
-            traps.add(new Pit_Trap(player,"f",10));
-            traps.add(new Healing_Trap(player));
-        } else if (difficulty==2) {
+            traps.add(new Wall());
             traps.add(new Wall());
             traps.add(new Empty(player));
+            traps.add(new Empty(player));
+            traps.add(new Empty(player));
             traps.add(new Healing_Trap(player));
+            traps.add(new Pit_Trap(player, "f", 10));
+            traps.add(new Pit_Trap(player, "f", 10));
+        } else if (difficulty==2) {
+            traps.add(new Wall());
+            traps.add(new Wall());
+            traps.add(new Wall());
+            traps.add(new Empty(player));
+            traps.add(new Empty(player));
+            traps.add(new Empty(player));
+            traps.add(new Healing_Trap(player));
+            traps.add(new Pit_Trap(player, "f", 5));
             traps.add(new Pit_Trap(player, "f", 5));
         } else if (difficulty==1){
             traps.add(new Wall());
             traps.add(new Empty(player));
             traps.add(new Empty(player));
+
         }
     }
 

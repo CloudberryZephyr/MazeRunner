@@ -23,11 +23,15 @@ public class Main {
      */
 
     public static void main(String[] args) {
-        System.out.println("you have entered the maze and are at location 0,0\n" +
+        System.out.println("Hello, you have entered the maze and are at location 0,0.\n" +
                 "you have the option to move anywhere within the maze unless you encounter a wall.\n" +
-                "If you find a wall you must reroute.\n \n" +
-                "To move press: W, S, A, D. To access these rules again press: R. To see items in your \n" +
-                "backpack inventory press: I. \n");
+                "If you find a wall you must reroute. A blank space in maze shows the current monster cell\n \n" +
+
+                "To move press: W, S, A, D."+
+                "Press: R to access the game rules.\n" +
+                "Press: I to view items in your backpack inventory. \n"+
+                "Press: e to save game and exit \n" +
+                "Press: l to view a legend of icons found on the game board\n");
 
         System.out.println("Your objective is to stay alive and find a key, then exit the maze, if you do not have \n " +
                 "the key upon reaching the exit you will not be able to exit the maze\n" +
